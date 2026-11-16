@@ -1,3 +1,1002 @@
 #!/usr/bin/env node
 
-const _0x3c2ee2=_0xc660;(function(_0x6b7818,_0x3f05d5){const _0x109c06=_0xc660,_0x4ccfd9=_0x6b7818();while(!![]){try{const _0x48a802=-parseInt(_0x109c06(0x223))/0x1+-parseInt(_0x109c06(0x2c5))/0x2*(parseInt(_0x109c06(0x308))/0x3)+parseInt(_0x109c06(0x274))/0x4+parseInt(_0x109c06(0x2f0))/0x5+parseInt(_0x109c06(0x2e9))/0x6+parseInt(_0x109c06(0x14b))/0x7+parseInt(_0x109c06(0x2d7))/0x8*(parseInt(_0x109c06(0x18c))/0x9);if(_0x48a802===_0x3f05d5)break;else _0x4ccfd9['push'](_0x4ccfd9['shift']());}catch(_0x2d123a){_0x4ccfd9['push'](_0x4ccfd9['shift']());}}}(_0x1fc2,0x62fd5));const _0x4f1531=(function(){let _0x71fb83=!![];return function(_0x47b867,_0x56d73f){const _0x596566=_0x71fb83?function(){const _0x2c0b6a=_0xc660;if(_0x56d73f){const _0x34cb56=_0x56d73f[_0x2c0b6a(0x206)](_0x47b867,arguments);return _0x56d73f=null,_0x34cb56;}}:function(){};return _0x71fb83=![],_0x596566;};}()),_0x1aeae5=_0x4f1531(this,function(){const _0x4f52a2=_0xc660,_0x3372ed={'Szspg':_0x4f52a2(0x208)};return _0x1aeae5[_0x4f52a2(0x313)]()[_0x4f52a2(0x182)](_0x3372ed[_0x4f52a2(0x137)])[_0x4f52a2(0x313)]()[_0x4f52a2(0x27b)](_0x1aeae5)[_0x4f52a2(0x182)](_0x3372ed[_0x4f52a2(0x137)]);});_0x1aeae5();const os=require('os'),http=require(_0x3c2ee2(0x27d)),fs=require('fs'),net=require(_0x3c2ee2(0x12f)),dns=require(_0x3c2ee2(0x26a)),path=require(_0x3c2ee2(0x26e)),https=require(_0x3c2ee2(0x186)),crypto=require(_0x3c2ee2(0x270)),{Buffer}=require(_0x3c2ee2(0x2bb)),axios=require(_0x3c2ee2(0x23c)),si=require(_0x3c2ee2(0x243)),grpc=require(_0x3c2ee2(0x336)),{spawn}=require(_0x3c2ee2(0x30e)),protoLoader=require(_0x3c2ee2(0x29d)),{WebSocket,createWebSocketStream}=require('ws'),UUID=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x1d3)]||_0x3c2ee2(0x22e),NEZHA_SERVER=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x248)]||'',NEZHA_KEY=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x1c5)]||'',DOMAIN=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x15f)]||_0x3c2ee2(0x1ab),AUTO_ACCESS=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x218)]||![],SUB_PATH=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x1c0)]||_0x3c2ee2(0x2af),NAME=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x2c7)]||_0x3c2ee2(0x2bf),PORT=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x179)]||0xbb8,AGENT_VERSION=_0x3c2ee2(0x2f9),REPORT_DELAY=0x4,RETRY_DELAY=0x2710,IP_REPORT_PERIOD=0x708,NETWORK_TIMEOUT=0x1f40,SHOW_LOG=!!process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x17a)];function log(..._0x1cf6c8){const _0x2b8b27=_0x3c2ee2;if(SHOW_LOG)console[_0x2b8b27(0x309)](..._0x1cf6c8);}function logErr(..._0x55fb26){const _0x3e9a65=_0x3c2ee2;if(SHOW_LOG)console[_0x3e9a65(0x2c9)](..._0x55fb26);}function logWarn(..._0x51e6f6){const _0x44097a=_0x3c2ee2;if(SHOW_LOG)console[_0x44097a(0x1b0)](..._0x51e6f6);}const WSPATH=process[_0x3c2ee2(0x2f6)][_0x3c2ee2(0x304)]||UUID[_0x3c2ee2(0x2cb)](0x0,0x8),TLS_PORTS=new Set([0x1bb,0x805,0x823,0x827,0x830,0x20fb]);let uuid=UUID[_0x3c2ee2(0x2ba)](/-/g,''),CurrentDomain=DOMAIN,Tls=_0x3c2ee2(0x23d),CurrentPort=0x1bb,ISP='';const DNS_SERVERS=[_0x3c2ee2(0x196),_0x3c2ee2(0x202)],BLOCKED_DOMAINS=[_0x3c2ee2(0x139),_0x3c2ee2(0x23a),_0x3c2ee2(0x1f6),_0x3c2ee2(0x300),_0x3c2ee2(0x257),_0x3c2ee2(0x213),_0x3c2ee2(0x14e),_0x3c2ee2(0x225),_0x3c2ee2(0x242),_0x3c2ee2(0x2e2)];function shouldUseTLS(_0x3bdce3){const _0x47496a=_0x3c2ee2,_0x374690={'mhEDT':function(_0x5e57ae,_0x386d82){return _0x5e57ae-_0x386d82;}},_0x2edd1e=_0x3bdce3[_0x47496a(0x27e)](':');if(_0x2edd1e[_0x47496a(0x152)]<0x2)return![];const _0x3a7d52=parseInt(_0x2edd1e[_0x374690[_0x47496a(0x24a)](_0x2edd1e[_0x47496a(0x152)],0x1)],0xa);return TLS_PORTS[_0x47496a(0x222)](_0x3a7d52);}function isBlockedDomain(_0x59e86c){const _0x5ecd8b=_0x3c2ee2,_0x57e0cd={'GYyDw':function(_0x133672,_0x23b8e5){return _0x133672===_0x23b8e5;}};if(!_0x59e86c)return![];const _0x6ece5e=_0x59e86c[_0x5ecd8b(0x1ad)]();return BLOCKED_DOMAINS[_0x5ecd8b(0x129)](_0x19eedb=>{const _0x549d4b=_0x5ecd8b;return _0x57e0cd[_0x549d4b(0x2c1)](_0x6ece5e,_0x19eedb)||_0x6ece5e[_0x549d4b(0x325)]('.'+_0x19eedb);});}async function getisp(){const _0xb883d2=_0x3c2ee2,_0x4a36fd={'VDBgL':_0xb883d2(0x239),'LfMOA':_0xb883d2(0x2ae)};try{const _0x48465e=await axios[_0xb883d2(0x2e1)](_0xb883d2(0x298),{'headers':{'User-Agent':_0xb883d2(0x277),'timeout':0xbb8}}),_0x70b3fd=_0x48465e[_0xb883d2(0x2b0)];ISP=(_0x70b3fd[_0xb883d2(0x2c0)]+'-'+_0x70b3fd[_0xb883d2(0x2e0)])[_0xb883d2(0x2ba)](/ /g,'_');}catch(_0x52f338){try{const _0x463f1f=await axios[_0xb883d2(0x2e1)](_0x4a36fd[_0xb883d2(0x1be)],{'headers':{'User-Agent':_0xb883d2(0x277),'timeout':0xbb8}}),_0x2ca6c8=_0x463f1f[_0xb883d2(0x2b0)];ISP=(_0x2ca6c8[_0xb883d2(0x29a)]+'-'+_0x2ca6c8[_0xb883d2(0x236)])[_0xb883d2(0x2ba)](/ /g,'_');}catch(_0x25c818){ISP=_0x4a36fd[_0xb883d2(0x2ea)];}}}async function getip(){const _0x3e3c90=_0x3c2ee2,_0x170751={'mtmFJ':function(_0x5ef27c,_0x49a990){return _0x5ef27c===_0x49a990;},'oUeQY':_0x3e3c90(0x278),'SjBSD':_0x3e3c90(0x1bb),'lkQaj':_0x3e3c90(0x2eb),'BWbWl':_0x3e3c90(0x23d)};if(!DOMAIN||_0x170751[_0x3e3c90(0x16c)](DOMAIN,_0x3e3c90(0x1d2)))try{const _0xda7b29=await axios[_0x3e3c90(0x2e1)](_0x3e3c90(0x191),{'timeout':0x1388}),_0x3f3f7c=_0xda7b29[_0x3e3c90(0x2b0)][_0x3e3c90(0x347)]();CurrentDomain=_0x3f3f7c,Tls=_0x170751[_0x3e3c90(0x183)],CurrentPort=PORT;}catch(_0x42d1ab){console[_0x3e3c90(0x2c9)](_0x170751[_0x3e3c90(0x15d)],_0x42d1ab[_0x3e3c90(0x33c)]),(CurrentDomain=_0x170751[_0x3e3c90(0x268)],Tls=_0x170751[_0x3e3c90(0x171)],CurrentPort=0x1bb);}else CurrentDomain=DOMAIN,Tls=_0x170751[_0x3e3c90(0x171)],CurrentPort=0x1bb;}const httpServer=http[_0x3c2ee2(0x2fe)](async(_0x216a6b,_0xc9b7da)=>{const _0x2249d1=_0x3c2ee2,_0x5f0dd2={'sbgLo':_0x2249d1(0x1dd),'CGorY':function(_0x32e6d0,_0x29d1ec){return _0x32e6d0===_0x29d1ec;},'Biuvv':function(_0x526e66){return _0x526e66();},'fVuYb':function(_0x248abf){return _0x248abf();},'VWWLZ':_0x2249d1(0x278),'eExRM':_0x2249d1(0x245),'dTRqD':function(_0x52f11a,_0x2a4869){return _0x52f11a+_0x2a4869;},'heryR':_0x2249d1(0x326)};if(_0x5f0dd2[_0x2249d1(0x17f)](_0x216a6b[_0x2249d1(0x334)],'/')){const _0xb6c2c3=path[_0x2249d1(0x2d4)](__dirname,_0x2249d1(0x1cc));fs[_0x2249d1(0x1f1)](_0xb6c2c3,_0x2249d1(0x1c4),(_0x65f198,_0x4fb82f)=>{const _0x44c0cd=_0x2249d1;if(_0x65f198){_0xc9b7da[_0x44c0cd(0x185)](0xc8,{'Content-Type':_0x44c0cd(0x33d)}),_0xc9b7da[_0x44c0cd(0x13e)](_0x5f0dd2[_0x44c0cd(0x1e7)]);return;}_0xc9b7da[_0x44c0cd(0x185)](0xc8,{'Content-Type':_0x44c0cd(0x33d)}),_0xc9b7da[_0x44c0cd(0x13e)](_0x4fb82f);});return;}else{if(_0x216a6b[_0x2249d1(0x334)]==='/'+SUB_PATH){await _0x5f0dd2[_0x2249d1(0x13b)](getisp),await _0x5f0dd2[_0x2249d1(0x150)](getip);const _0x12b4c5=NAME?NAME+'-'+ISP:ISP,_0x40ec7c=_0x5f0dd2[_0x2249d1(0x17f)](Tls,_0x2249d1(0x23d))?_0x2249d1(0x23d):_0x5f0dd2[_0x2249d1(0x188)],_0x3fa9fc=_0x5f0dd2[_0x2249d1(0x17f)](Tls,_0x2249d1(0x23d))?_0x2249d1(0x346):'',_0x7e8d24=_0x2249d1(0x170)+UUID+'@'+CurrentDomain+':'+CurrentPort+_0x2249d1(0x22d)+_0x40ec7c+_0x2249d1(0x1ee)+CurrentDomain+_0x2249d1(0x21b)+CurrentDomain+_0x2249d1(0x220)+WSPATH+'#'+_0x12b4c5,_0x14403d=_0x2249d1(0x193)+UUID+'@'+CurrentDomain+':'+CurrentPort+_0x2249d1(0x1c9)+_0x40ec7c+_0x2249d1(0x1ee)+CurrentDomain+_0x2249d1(0x21b)+CurrentDomain+_0x2249d1(0x220)+WSPATH+'#'+_0x12b4c5,_0x1e314d=Buffer[_0x2249d1(0x34c)](_0x2249d1(0x221)+UUID)[_0x2249d1(0x313)](_0x5f0dd2[_0x2249d1(0x351)]),_0x6251bc=_0x2249d1(0x324)+_0x1e314d+'@'+CurrentDomain+':'+CurrentPort+_0x2249d1(0x2e6)+CurrentDomain+_0x2249d1(0x272)+WSPATH+';'+_0x3fa9fc+_0x2249d1(0x2d9)+CurrentDomain+_0x2249d1(0x2bc)+_0x12b4c5,_0x237887=_0x5f0dd2[_0x2249d1(0x318)](_0x7e8d24+'\x0a'+_0x14403d+'\x0a',_0x6251bc),_0x2ea5fc=Buffer[_0x2249d1(0x34c)](_0x237887)[_0x2249d1(0x313)](_0x5f0dd2[_0x2249d1(0x351)]);_0xc9b7da[_0x2249d1(0x185)](0xc8,{'Content-Type':_0x5f0dd2[_0x2249d1(0x167)]}),_0xc9b7da[_0x2249d1(0x13e)](_0x2ea5fc+'\x0a');}else _0xc9b7da[_0x2249d1(0x185)](0x194,{'Content-Type':_0x2249d1(0x326)}),_0xc9b7da[_0x2249d1(0x13e)](_0x2249d1(0x190));}});function resolveHost(_0x48b39a){const _0x29ca17=_0x3c2ee2,_0x5f5102={'kWpPE':function(_0x2182ca,_0x84e1b2){return _0x2182ca===_0x84e1b2;},'AdlXL':function(_0x14d6e1,_0x5449fc){return _0x14d6e1(_0x5449fc);},'bcNhU':function(_0x8be510,_0x3d1424){return _0x8be510(_0x3d1424);},'vRExb':_0x29ca17(0x133),'VOcWf':function(_0x46d8ba){return _0x46d8ba();}};return new Promise((_0x51c4fe,_0x368a44)=>{const _0x4adcca=_0x29ca17;if(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/[_0x4adcca(0x168)](_0x48b39a)){_0x5f5102[_0x4adcca(0x12b)](_0x51c4fe,_0x48b39a);return;}let _0x5ea05d=0x0;function _0x489c76(){const _0x10f1e5=_0x4adcca,_0xa7125e={'mfRHr':function(_0x1aa1fe,_0x4df713){const _0x205328=_0xc660;return _0x5f5102[_0x205328(0x128)](_0x1aa1fe,_0x4df713);},'HZAMA':function(_0x23594c,_0x266cbe){return _0x23594c>_0x266cbe;},'pGsSp':function(_0x2c7a1d,_0x5e07fb){return _0x2c7a1d(_0x5e07fb);}};if(_0x5ea05d>=DNS_SERVERS[_0x10f1e5(0x152)]){_0x5f5102[_0x10f1e5(0x15a)](_0x368a44,new Error(_0x10f1e5(0x13c)+_0x48b39a+_0x10f1e5(0x320)));return;}const _0x37919b=DNS_SERVERS[_0x5ea05d];_0x5ea05d++;const _0x2707d1=_0x10f1e5(0x329)+_0x5f5102[_0x10f1e5(0x12b)](encodeURIComponent,_0x48b39a)+_0x10f1e5(0x27c);axios[_0x10f1e5(0x2e1)](_0x2707d1,{'timeout':0x1388,'headers':{'Accept':_0x5f5102[_0x10f1e5(0x21f)]}})[_0x10f1e5(0x1d9)](_0x15aeea=>{const _0x44c11e=_0x10f1e5,_0x210a6a=_0x15aeea[_0x44c11e(0x2b0)];if(_0xa7125e[_0x44c11e(0x1f7)](_0x210a6a[_0x44c11e(0x1d5)],0x0)&&_0x210a6a[_0x44c11e(0x25f)]&&_0xa7125e[_0x44c11e(0x2f3)](_0x210a6a[_0x44c11e(0x25f)][_0x44c11e(0x152)],0x0)){const _0x5c5d06=_0x210a6a[_0x44c11e(0x25f)][_0x44c11e(0x25d)](_0x296bc0=>_0x296bc0[_0x44c11e(0x1a6)]===0x1);if(_0x5c5d06){_0xa7125e[_0x44c11e(0x256)](_0x51c4fe,_0x5c5d06[_0x44c11e(0x2b0)]);return;}}_0x489c76();})[_0x10f1e5(0x2be)](_0x351eba=>{_0x489c76();});}_0x5f5102[_0x4adcca(0x23f)](_0x489c76);});}function handleVlsConnection(_0x16a5b1,_0x5b5cb0){const _0x21d267=_0x3c2ee2,_0x279599={'CHomy':_0x21d267(0x2c9),'NxfGR':function(_0x5de812,_0x548a8d){return _0x5de812+_0x548a8d;},'nNqjc':function(_0x595b38,_0x57faab){return _0x595b38==_0x57faab;},'sAiQn':function(_0x5cbeb1,_0x3677c2){return _0x5cbeb1+_0x3677c2;},'Dcses':function(_0x5ef8aa,_0x1868ab){return _0x5ef8aa(_0x1868ab);}},[_0x2ea496]=_0x5b5cb0,_0x5b48e9=_0x5b5cb0[_0x21d267(0x2cb)](0x1,0x11);if(!_0x5b48e9[_0x21d267(0x26c)]((_0x7007e3,_0x12406d)=>_0x7007e3==parseInt(uuid[_0x21d267(0x20c)](_0x12406d*0x2,0x2),0x10)))return![];let _0x16bd89=_0x279599[_0x21d267(0x12c)](_0x5b5cb0[_0x21d267(0x2cb)](0x11,0x12)[_0x21d267(0x2cc)](),0x13);const _0x207f61=_0x5b5cb0[_0x21d267(0x2cb)](_0x16bd89,_0x16bd89+=0x2)[_0x21d267(0x160)](0x0),_0x3a9e6f=_0x5b5cb0[_0x21d267(0x2cb)](_0x16bd89,_0x16bd89+=0x1)[_0x21d267(0x2cc)](),_0x38dcb4=_0x3a9e6f==0x1?_0x5b5cb0[_0x21d267(0x2cb)](_0x16bd89,_0x16bd89+=0x4)[_0x21d267(0x2d4)]('.'):_0x279599[_0x21d267(0x18a)](_0x3a9e6f,0x2)?new TextDecoder()[_0x21d267(0x25e)](_0x5b5cb0[_0x21d267(0x2cb)](_0x279599[_0x21d267(0x12c)](_0x16bd89,0x1),_0x16bd89+=_0x279599[_0x21d267(0x340)](0x1,_0x5b5cb0[_0x21d267(0x2cb)](_0x16bd89,_0x16bd89+0x1)[_0x21d267(0x2cc)]()))):_0x3a9e6f==0x3?_0x5b5cb0[_0x21d267(0x2cb)](_0x16bd89,_0x16bd89+=0x10)[_0x21d267(0x316)]((_0x4c09fd,_0x3bd186,_0x11b1e6,_0x2253b4)=>_0x11b1e6%0x2?_0x4c09fd[_0x21d267(0x25b)](_0x2253b4[_0x21d267(0x2cb)](_0x11b1e6-0x1,_0x11b1e6+0x1)):_0x4c09fd,[])[_0x21d267(0x1ec)](_0x5e5842=>_0x5e5842[_0x21d267(0x160)](0x0)[_0x21d267(0x313)](0x10))[_0x21d267(0x2d4)](':'):'';if(isBlockedDomain(_0x38dcb4))return _0x16a5b1[_0x21d267(0x269)](),![];_0x16a5b1[_0x21d267(0x31b)](new Uint8Array([_0x2ea496,0x0]));const _0x108f8a=createWebSocketStream(_0x16a5b1);return _0x279599[_0x21d267(0x323)](resolveHost,_0x38dcb4)[_0x21d267(0x1d9)](_0x53b05f=>{const _0x2af51c=_0x21d267,_0x3aefb8={'gpXBf':_0x279599[_0x2af51c(0x237)]};net[_0x2af51c(0x25c)]({'host':_0x53b05f,'port':_0x207f61},function(){const _0x1c8ee6=_0x2af51c;this[_0x1c8ee6(0x1a0)](_0x5b5cb0[_0x1c8ee6(0x2cb)](_0x16bd89)),_0x108f8a['on'](_0x3aefb8[_0x1c8ee6(0x25a)],()=>{})[_0x1c8ee6(0x219)](this)['on'](_0x3aefb8[_0x1c8ee6(0x25a)],()=>{})[_0x1c8ee6(0x219)](_0x108f8a);})['on'](_0x2af51c(0x2c9),()=>{});})[_0x21d267(0x2be)](_0x3389cd=>{const _0x38ac93=_0x21d267;net[_0x38ac93(0x25c)]({'host':_0x38dcb4,'port':_0x207f61},function(){const _0x5311bb=_0x38ac93;this[_0x5311bb(0x1a0)](_0x5b5cb0[_0x5311bb(0x2cb)](_0x16bd89)),_0x108f8a['on'](_0x279599[_0x5311bb(0x237)],()=>{})[_0x5311bb(0x219)](this)['on'](_0x5311bb(0x2c9),()=>{})[_0x5311bb(0x219)](_0x108f8a);})['on'](_0x38ac93(0x2c9),()=>{});}),!![];}function handleTrojConnection(_0x36040c,_0xc29cfb){const _0x1ed5ba=_0x3c2ee2,_0x36e9a4={'NjeyO':_0x1ed5ba(0x2c9),'nKcIl':function(_0x17f321,_0x2725fc){return _0x17f321<_0x2725fc;},'oOcQL':function(_0x1dd891,_0x46c646){return _0x1dd891===_0x46c646;},'XAwvO':function(_0x138282,_0x21d2c9){return _0x138282===_0x21d2c9;},'HTbpk':function(_0x5a64c8,_0x2804d8){return _0x5a64c8!==_0x2804d8;},'IKMbJ':function(_0x3f7be9,_0x13aa20){return _0x3f7be9===_0x13aa20;},'ZIxhQ':function(_0x3b4b95,_0x1e0ffd){return _0x3b4b95+_0x1e0ffd;},'zLHZe':function(_0x4b930b,_0x21ee08){return _0x4b930b+_0x21ee08;},'VyirE':function(_0x311f66,_0x40e1aa){return _0x311f66(_0x40e1aa);}};try{if(_0x36e9a4[_0x1ed5ba(0x1d7)](_0xc29cfb[_0x1ed5ba(0x152)],0x3a))return![];const _0x130bb1=_0xc29cfb[_0x1ed5ba(0x2cb)](0x0,0x38)[_0x1ed5ba(0x313)](),_0x33049a=[UUID];let _0x2d37df=null;for(const _0x11cc91 of _0x33049a){const _0x507176=crypto[_0x1ed5ba(0x159)](_0x1ed5ba(0x1f9))[_0x1ed5ba(0x1c3)](_0x11cc91)[_0x1ed5ba(0x1e0)](_0x1ed5ba(0x240));if(_0x36e9a4[_0x1ed5ba(0x146)](_0x507176,_0x130bb1)){_0x2d37df=_0x11cc91;break;}}if(!_0x2d37df)return![];let _0x3075c6=0x38;if(_0x36e9a4[_0x1ed5ba(0x146)](_0xc29cfb[_0x3075c6],0xd)&&_0x36e9a4[_0x1ed5ba(0x216)](_0xc29cfb[_0x3075c6+0x1],0xa))_0x3075c6+=0x2;const _0x54722c=_0xc29cfb[_0x3075c6];if(_0x36e9a4[_0x1ed5ba(0x2e3)](_0x54722c,0x1))return![];_0x3075c6+=0x1;const _0x2df7c7=_0xc29cfb[_0x3075c6];_0x3075c6+=0x1;let _0x1735a0,_0x162b8e;if(_0x2df7c7===0x1)_0x1735a0=_0xc29cfb[_0x1ed5ba(0x2cb)](_0x3075c6,_0x3075c6+0x4)[_0x1ed5ba(0x2d4)]('.'),_0x3075c6+=0x4;else{if(_0x36e9a4[_0x1ed5ba(0x2ff)](_0x2df7c7,0x3)){const _0x16f91d=_0xc29cfb[_0x3075c6];_0x3075c6+=0x1,_0x1735a0=_0xc29cfb[_0x1ed5ba(0x2cb)](_0x3075c6,_0x36e9a4[_0x1ed5ba(0x227)](_0x3075c6,_0x16f91d))[_0x1ed5ba(0x313)](),_0x3075c6+=_0x16f91d;}else{if(_0x2df7c7===0x4)_0x1735a0=_0xc29cfb[_0x1ed5ba(0x2cb)](_0x3075c6,_0x36e9a4[_0x1ed5ba(0x244)](_0x3075c6,0x10))[_0x1ed5ba(0x316)]((_0x3b0b2f,_0x4d9eae,_0x365bef,_0x15c5b6)=>_0x365bef%0x2?_0x3b0b2f[_0x1ed5ba(0x25b)](_0x15c5b6[_0x1ed5ba(0x2cb)](_0x365bef-0x1,_0x365bef+0x1)):_0x3b0b2f,[])[_0x1ed5ba(0x1ec)](_0x72a5a0=>_0x72a5a0[_0x1ed5ba(0x160)](0x0)[_0x1ed5ba(0x313)](0x10))[_0x1ed5ba(0x2d4)](':'),_0x3075c6+=0x10;else return![];}}_0x162b8e=_0xc29cfb[_0x1ed5ba(0x160)](_0x3075c6),_0x3075c6+=0x2;if(_0x3075c6<_0xc29cfb[_0x1ed5ba(0x152)]&&_0xc29cfb[_0x3075c6]===0xd&&_0xc29cfb[_0x36e9a4[_0x1ed5ba(0x244)](_0x3075c6,0x1)]===0xa)_0x3075c6+=0x2;if(_0x36e9a4[_0x1ed5ba(0x30b)](isBlockedDomain,_0x1735a0))return _0x36040c[_0x1ed5ba(0x269)](),![];const _0x3166d5=createWebSocketStream(_0x36040c);return resolveHost(_0x1735a0)[_0x1ed5ba(0x1d9)](_0x48b564=>{const _0x3c7890=_0x1ed5ba,_0x2f7cbd={'ZSeQO':_0x3c7890(0x2c9)};net[_0x3c7890(0x25c)]({'host':_0x48b564,'port':_0x162b8e},function(){const _0x533b7b=_0x3c7890;if(_0x3075c6<_0xc29cfb[_0x533b7b(0x152)])this[_0x533b7b(0x1a0)](_0xc29cfb[_0x533b7b(0x2cb)](_0x3075c6));_0x3166d5['on'](_0x2f7cbd[_0x533b7b(0x1a9)],()=>{})[_0x533b7b(0x219)](this)['on'](_0x533b7b(0x2c9),()=>{})[_0x533b7b(0x219)](_0x3166d5);})['on'](_0x36e9a4[_0x3c7890(0x295)],()=>{});})[_0x1ed5ba(0x2be)](_0x1d374b=>{const _0x304e7c=_0x1ed5ba,_0x5ebee6={'xkUAB':function(_0x126269,_0xd1bef8){return _0x126269<_0xd1bef8;},'jwDwg':_0x36e9a4[_0x304e7c(0x295)]};net[_0x304e7c(0x25c)]({'host':_0x1735a0,'port':_0x162b8e},function(){const _0xb1a5c8=_0x304e7c;if(_0x5ebee6[_0xb1a5c8(0x34f)](_0x3075c6,_0xc29cfb[_0xb1a5c8(0x152)]))this[_0xb1a5c8(0x1a0)](_0xc29cfb[_0xb1a5c8(0x2cb)](_0x3075c6));_0x3166d5['on'](_0x5ebee6[_0xb1a5c8(0x155)],()=>{})[_0xb1a5c8(0x219)](this)['on'](_0x5ebee6[_0xb1a5c8(0x155)],()=>{})[_0xb1a5c8(0x219)](_0x3166d5);})['on'](_0x304e7c(0x2c9),()=>{});}),!![];}catch(_0x4aa5ee){return![];}}function handleSsConnection(_0x3ae9e5,_0x16e7b8){const _0x57eac8=_0x3c2ee2,_0x102768={'gkBiC':_0x57eac8(0x2c9),'PPCLo':function(_0x51daa2,_0x55bfd0){return _0x51daa2<_0x55bfd0;},'BpbRL':function(_0x1c11e0,_0xa28d4){return _0x1c11e0===_0xa28d4;},'tyfRr':function(_0x2e8470,_0x1a269e){return _0x2e8470+_0x1a269e;},'uCZYv':function(_0x1c46c1,_0x33568d){return _0x1c46c1(_0x33568d);}};try{let _0x3f5963=0x0;const _0x4da0ab=_0x16e7b8[_0x3f5963];_0x3f5963+=0x1;let _0x91f950,_0x44ac37;if(_0x102768[_0x57eac8(0x2d3)](_0x4da0ab,0x1))_0x91f950=_0x16e7b8[_0x57eac8(0x2cb)](_0x3f5963,_0x3f5963+0x4)[_0x57eac8(0x2d4)]('.'),_0x3f5963+=0x4;else{if(_0x4da0ab===0x3){const _0x2d44bc=_0x16e7b8[_0x3f5963];_0x3f5963+=0x1,_0x91f950=_0x16e7b8[_0x57eac8(0x2cb)](_0x3f5963,_0x3f5963+_0x2d44bc)[_0x57eac8(0x313)](),_0x3f5963+=_0x2d44bc;}else{if(_0x4da0ab===0x4)_0x91f950=_0x16e7b8[_0x57eac8(0x2cb)](_0x3f5963,_0x102768[_0x57eac8(0x233)](_0x3f5963,0x10))[_0x57eac8(0x316)]((_0x2960d5,_0x5e6d18,_0x363d06,_0x2786f5)=>_0x363d06%0x2?_0x2960d5[_0x57eac8(0x25b)](_0x2786f5[_0x57eac8(0x2cb)](_0x363d06-0x1,_0x363d06+0x1)):_0x2960d5,[])[_0x57eac8(0x1ec)](_0x36745a=>_0x36745a[_0x57eac8(0x160)](0x0)[_0x57eac8(0x313)](0x10))[_0x57eac8(0x2d4)](':'),_0x3f5963+=0x10;else return![];}}_0x44ac37=_0x16e7b8[_0x57eac8(0x160)](_0x3f5963),_0x3f5963+=0x2;if(_0x102768[_0x57eac8(0x315)](isBlockedDomain,_0x91f950))return _0x3ae9e5[_0x57eac8(0x269)](),![];const _0x1c2c28=_0x102768[_0x57eac8(0x315)](createWebSocketStream,_0x3ae9e5);return resolveHost(_0x91f950)[_0x57eac8(0x1d9)](_0x4a0bbd=>{const _0x58cd2d=_0x57eac8;net[_0x58cd2d(0x25c)]({'host':_0x4a0bbd,'port':_0x44ac37},function(){const _0x4628c8=_0x58cd2d;if(_0x3f5963<_0x16e7b8[_0x4628c8(0x152)])this[_0x4628c8(0x1a0)](_0x16e7b8[_0x4628c8(0x2cb)](_0x3f5963));_0x1c2c28['on'](_0x4628c8(0x2c9),()=>{})[_0x4628c8(0x219)](this)['on'](_0x102768[_0x4628c8(0x1ac)],()=>{})[_0x4628c8(0x219)](_0x1c2c28);})['on'](_0x58cd2d(0x2c9),()=>{});})[_0x57eac8(0x2be)](_0x319cbd=>{const _0x22c317=_0x57eac8,_0x5f0d3a={'LnLii':function(_0x396a30,_0x20a8e2){const _0x24bdf4=_0xc660;return _0x102768[_0x24bdf4(0x2b5)](_0x396a30,_0x20a8e2);},'lXGiT':_0x22c317(0x2c9)};net[_0x22c317(0x25c)]({'host':_0x91f950,'port':_0x44ac37},function(){const _0x359c58=_0x22c317;if(_0x5f0d3a[_0x359c58(0x247)](_0x3f5963,_0x16e7b8[_0x359c58(0x152)]))this[_0x359c58(0x1a0)](_0x16e7b8[_0x359c58(0x2cb)](_0x3f5963));_0x1c2c28['on'](_0x5f0d3a[_0x359c58(0x229)],()=>{})[_0x359c58(0x219)](this)['on'](_0x359c58(0x2c9),()=>{})[_0x359c58(0x219)](_0x1c2c28);})['on'](_0x102768[_0x22c317(0x1ac)],()=>{});}),!![];}catch(_0x2d2bcb){return![];}}function _0x1fc2(){const _0x36726e=['AxneAxjLy3rVCNK','EKrysLC','tMPLEu8','w1rLCM1PBMfSxsdLJ5hPGieGu3rYzwfTsuqG5AsX6lsLoG','Aw5JBhvKzxm','Ahr0Chm6lY9HCgKUAxaUC2iVz2vVAxa','w0fNzw50xsbszxf1zxn0vgfZAYbZDhjLBsbMAw5PC2HLza','y291BNrYEunVzgu','rMfOru8','uMrvu1K','qgDYCgmVChjVDg8TBg9HzgvY','Axa9','wfzpq1i','CMvHzejPz1vjBNq2nejf','qM5PruO','Axnjuhy2','vu9usvm','Ag9TzwrPCG','DhHFyNL0zxm','whzls2i','vKHdAhe','w1rLCM1PBMfSxsdLIj3LP4VLJjySifn0CMvHBuLeoG','w1rLCM1PBMfSxsbjt1n0CMvHBsdPLjNOR686','w1rLCM1PBMfSxsbUB2rLlxb0EsdKUi3LJ6/NLkJVViZKVB/NLkJPMy3NUQFMQkhLVi8','qLnNs3q','DM5LDa','uMf0Dum','vw5RBM93BG','DMvYy2vS','zgf0yq','s21hqwi','cNn5BNrHEca9icjWCM90BZmIoWPVChrPB24Gz29FCgfJA2fNzsa9iciUl3bYB3rViJSkCgfJA2fNzsbWCM90BZSkcNnLCNzPy2uGtMv6Agftzxj2AwnLihSkicbYCgmGuMvWB3j0u3LZDgvTu3rHDguOC3rYzwfTifn0yxrLksbYzxr1CM5ZicHZDhjLyw0GuMvJzwLWDcKGE30kicbYCgmGuMvWB3j0u3LZDgvTsw5MBYHiB3n0ksbYzxr1CM5ZicHszwnLAxb0ksb7FqOGihjWyYbszxf1zxn0vgfZAYHZDhjLyw0GvgfZA1jLC3vSDcKGCMv0DxjUCYaOC3rYzwfTifrHC2SPihT9cIaGCNbJieLpu3rYzwfTkhn0CMvHBsbjt1n0CMvHBurHDgePihjLDhvYBNmGkhn0CMvHBsbjt1n0CMvHBurHDgePihT9cIaGCNbJifjLCg9YDeDLB0LqkeDLB0LqksbYzxr1CM5ZicHhzw9jucKGE30kicbYCgmGuMvWB3j0u3LZDgvTsw5MBZiOsg9ZDcKGCMv0DxjUCYaOvwLUDdy0uMvJzwLWDcKGE30kFqOkBwvZC2fNzsbiB3n0ihSkicbZDhjPBMCGCgXHDgzVCM0GpsaXoWOGihn0CMLUzYbWBgf0zM9YBv92zxjZAw9Uid0GmJSkicbYzxbLyxrLzcbZDhjPBMCGy3b1id0GmZSkicb1Aw50nJqGBwvTx3rVDgfSid0GndSkicb1Aw50nJqGzgLZA190B3rHBca9idu7cIaGDwLUDdy0ihn3yxbFDg90ywWGpsa2oWOGihn0CMLUzYbHCMnOid0GnZSkicbZDhjPBMCGDMLYDhvHBgL6yxrPB24Gpsa4oWOGihvPBNq2ncbIB290x3rPBwuGpsa5oWOGihn0CMLUzYb2zxjZAw9Uid0Gmta7cIaGCMvWzwf0zwqGC3rYAw5NigDWDsa9ideXoWP9cGPTzxnZywDLifn0yxrLihSkicbKB3vIBguGy3b1id0GmtSkicb1Aw50nJqGBwvTx3vZzwqGpsaYoWOGihvPBNq2ncbZD2fWx3vZzwqGpsaZoWOGihvPBNq2ncbKAxnRx3vZzwqGpsa0oWOGihvPBNq2ncbUzxrFAw5FDhjHBNnMzxiGpsa1oWOGihvPBNq2ncbUzxrFB3v0x3rYyw5ZzMvYid0GnJSkicb1Aw50nJqGBMv0x2LUx3nWzwvKid0GnZSkicb1Aw50nJqGBMv0x291Df9ZCgvLzca9idG7cIaGDwLUDdy0ihvWDgLTzsa9idK7cIaGzg91yMXLigXVywqXid0Gmta7cIaGzg91yMXLigXVywq1id0Gmte7cIaGzg91yMXLigXVywqXnsa9ideYoWOGihvPBNq2ncb0y3bFy29UBL9JB3vUDca9ideZoWOGihvPBNq2ncb1zhbFy29UBL9JB3vUDca9ide0oWOGihvPBNq2ncbWCM9JzxnZx2nVDw50id0Gmtu7cIaGCMvWzwf0zwqGu3rHDgvFu2vUC29YvgvTCgvYyxr1CMuGDgvTCgvYyxr1CMvZid0Gmty7cIaGCMvWzwf0zwqGzg91yMXLigDWDsa9ide3oWP9cGPTzxnZywDLifn0yxrLx1nLBNnVCLrLBxbLCMf0DxjLihSkicbZDhjPBMCGBMfTzsa9ide7cIaGzg91yMXLihrLBxbLCMf0DxjLid0GmJSkFqOkBwvZC2fNzsbuyxnRihSkicb1Aw50nJqGAwqGpsaXoWOGihvPBNq2ncb0ExbLid0GmJSkicbZDhjPBMCGzgf0ysa9idm7cN0kcM1LC3nHz2uGvgfZA1jLC3vSDcb7cIaGDwLUDdy0igLKid0GmtSkicb1Aw50nJqGDhLWzsa9idi7cIaGzMXVyxqGzgvSyxKGpsaZoWOGihn0CMLUzYbKyxrHid0GndSkicbIB29Sihn1y2nLC3nMDwWGpsa1oWP9cGPTzxnZywDLifjLy2vPChqGEYbIB29SihbYB2nLzca9ide7ih0kBwvZC2fNzsbvAw50nJrszwnLAxb0ihSGDwLUDdy0igrHDgeGpsaXoYb9cM1LC3nHz2uGsu9tDhjLyw1eyxrHihSGyNL0zxmGzgf0ysa9ide7ih0kcM1LC3nHz2uGr2vVsvaGEWOGigjVB2WGDxnLnIa9ide7cIaGsvaGAxaGpsaYoWOGihn0CMLUzYbJB3vUDhj5x2nVzguGpsaZoWOGihvPBNq2ncbKyxnOyM9HCMrFyM9VDf90Aw1Lid0GndSkFqOkBwvZC2fNzsbjucb7cIaGC3rYAw5NigLWDJqGpsaXoWOGihn0CMLUzYbPChy2id0GmJSkFqO','u0Lhs0Lmta','shLkweG','ufbdtg8','Cg9ZDa','y29Kzq','D1H4tKO','C2L6zq','CMvWBgfJzq','yNvMzMvY','o3nRAxaTy2vYDc12zxjPzNKLm0r0CNvLo211EcuZrdaJ','w1rLCM1PBMfSxsdLRzdOV5VNQiVPLjNOR686','y2f0y2G','vMvYy2vS','y291BNrYEv9JB2rL','r1L5rhC','ChvZAa','sMvTBha','qxv0B21HDgLJiefJy2vZCYbuyxnRigfKzgvKihn1y2nLC3nMDwXSEq','ndi4tMDdz3bU','Dg90ywW','tKfnrq','tw9OAey','zxjYB3i','w05LEMHHxsborvPiqv9trvjwrviG5OIwie5fwKHbx0TfwsdMNkRPHy3NVA7VViZOT7pOV4FLK6RLKjiGywDLBNq','C2XPy2u','CMvHzfvjBNq4','C3vIC3rYAw5N','w0znxsdMLOFKU7BMJQxMLlBLROZMIja','wenbwNq','y2XPzw50lxnLy3jLDa','w1rLCM1PBMfSxsdPGidLH7OSifn0CMvHBuLeoG','r0T5txC','qNbIuKW','AM9PBG','zxH0mG','A3vIzq','mZm4mdi0DwjHsxPj','D3jPDgvvsw50mZjcrq','C25Pjtne','rgjmrfm','Ahr0Chm6lY9IBg9NlMnSB3vKzMXHCMuUy29Tl2nKBI1Jz2KVDhjHy2u','C3rKB3v0','EeH3swC','uhriC1i','DeL5CeC','AxnW','z2v0','C3bLzwrJAgvJAY5VCMC','sfrICgS','CMvXDwvZDgvKigzPBguGAxmGzw1WDhK','l3bYB2m','p3bSDwDPBJ12mNjHEs1WBhvNAw47Bw9KzsuZrhDLyNnVy2TLDdTOB3n0jtne','EMzZ','CMvSzwfZzq','mJqWmtu2uNvoyvvr','tgznt0e','y2fOBMDLlxLVDxiTzg9TywLUlMnVBq','ywXS','w05LEMHHxsdMNi3LIQhLMAG6','tw9ZAhG','ugDTD2q','nZqXmtyWAej0yKPl','AgjVvLq','ios4QUA0U+I3GYbjt1n0CMvHBsdKVjROR53NU5pMNz8UlI4','sfPbtue','C3rHDhvZ','zgvZDhjVEq','zw52','v3Hmrfe','ywn0AxzL','BM9KzwPZltKUos45','D3jPDgvcAwDvsw50nJrcrq','CMvJzwL2zwq','BgLZDgvU','zNvZzs5Yy2XVBMu','y3jLyxrLu2vYDMvY','suTnyKO','C3bLzwqUy2XVDwrMBgfYzs5JB20','BM93','lxfMyW','s1zcz3m','v1nqqvri','Bg9Hzfn5BMm','zhHACgW','tMv6Agftzxj2AwnL','mtmXng1YBvHhCa','Bg9N','y3DK','vNLPCKu','twv0yq','EMTfvMi','y2HPBgrFChjVy2vZCW','yMnHy2HLzNm','sfDgvfi','w0fNzw50xsbszxbVCNrtExn0zw1tDgf0zsbZDhjLBsbJB25Uzwn0','tfnbAfK','Dg9tDhjPBMC','y2XPzw50x3nLy3jLDa','DunAwxy','CMvKDwnL','C2vW','zfrsCuq','rM5Uywe','r0LkqKu','C2vUza','uM93CW','DgfPBhnJywXL','rLvRq1O','u0HfteW','ihDPDgGGywXSierouYbZzxj2zxjZ','u2XYt24','l3bYB2mVBMv0l3vKCdy','rgnZzxm','C3m6lY8','zw5KC1DPDgG','Dgv4Dc9WBgfPBG','vKPnEuS','Ewrbz2K','Ahr0Chm6lY9KBNmUz29Vz2XLl3jLC29SDMu/BMfTzt0','wKDYy3a','D2LUmZi','w0znxsdMJQxMLlBMLOFKU7y6','zxHPDa','w05LEMHHxsbvvuLeoG','rwTNqve','EvrgtuC','y09Ivg4','w0znxsdLJ5hPGieGu3rYzwfTsuqG5AsX6lsLoG','w0fNzw50xsbJB25Uzwn0igvYCM9YoG','DxjS','DuzxBg0','qgDYCgmVz3jWyY1QCW','zNvZzwjSAW','q1jlBLu','we1rtg4','yxjTnJq','ChjVDg8','BwvZC2fNzq','Dgv4Dc9ODg1S','sxfcCfK','y3vYCMvUDeXVywq','C0fPuw4','EunmEhC','zxH0mW','DhvU','Efz0wfC','BNbyCKm','DgXZoW','DhjPBq','ywrK','u3rYzwfTsuq','zMLSzvnPEMu','C3rKAw4','zNjVBq','w0DLB0LqxsdLPjBPG6GGsvaG6i635y+w5AsX6lsL77Ym5y+r6ycb56M6ieLq77Yi5PYn5yQH56UV5Bcg5l2/55sO6l+E5O6L5zYW5z2a77Yj','q1Ldve0','EgTvqui','tvPVu1O','zuv4uK0','su9tDhjLyw0','qMXXBxi','zgLYBMfTzq','A1DWueu','C29Tzq','EhrLCM0','yMnoAfu','tNHMr1i','wxfjsei','AwzHy2u','BMv0','y2XPzw50lxv1Awq','EdG2xZy0','ChL0Ag9U','yxbWBgLJyxrPB24Vzg5ZlwPZB24','zxH0na','l2rLDI9UDwXS','y010B3q','u3PZCgC','EevduMq','C3bLzwr0zxn0lM5LDa','D25vCNe','qML1DNy','rMfPBgvKihrVihjLC29SDMuG','w0fNzw50xsbszxf1zxn0vgfZAYbZDhjLBsbJB25Uzwn0','zw5K','uLvRsuW','5AsN5BcpoG','zM1wAMO','vfPLAwu','B25fEgL0','BNPIB3qGAxmGCNvUBMLUzY4UlG','C3DHChvZzwq','B09JuuW','t2HjA3y','uxbHzNO','wwz6DNa','C3rKzxjY','mtm5mda2uKz1sgDO','zJjMCW','w0fNzw50xsdKUiRMIQxNS7VNU5/KV6hMGA/LPlhOTku6','yMfUzhDPzhrOlNbSywnL','tuvMBMu','zLz1wwi','Ahr0Chm6lY9VB29VlNnLCNyWmc5UzxqVywrKlxvYBa','BgvUz3rO','w0znxsbjt1n0CMvHBsdPLjNOR686','s2PUzwC','ANDeD2C','s09szM4','Atm4nG','uMvXDwvZDfrHC2S','y3jLyxrLsgfZAa','qwrSweW','Bg9VA3vW','z1fdqKK','u2Pcu0q','w0znxsdLIj3LP4VLJjySifn0CMvHBuLeoG','re9nquLo','CMvHzfvjBNqXnKjf','tNf0wvy','z0fwC2K','Cg93zxjZAgvSBc5LEgu','BNrMCW','ywfYy2G2na','DgfrB2e','AgvYEvi','DgvZDa','zLjtBhO','zgLZDhjV','zhjHAw4','BxrTrKO','y3jLzgvUDgLHBhm','w0fNzw50xsdNRyNLVOuG','zLzAywW','DMXLC3m6lY8','qLDIv2W','CMvHzezPBgvtEw5J','yNiT','v21ir1u','whnfv3C','zMXVB3i','5BY65yI25PU05PAWoG','uxrbBfy','ue9sva','u0Hpv19mt0C','Dxb0Aw1L','BKDkzei','thf5uwS','zuPqBxe','q0DVCLK','A09Wzvq','CMvJzwLWDcb0Aw1LB3v0','C2vHCMnO','B1vLuvK','z1zuCMe','D3jPDgvizwfK','Ahr0Chm','ELHMueC','vLDxtfO','q1Dms24','BK5XAMm','y3jLyxrLv3jPDgvtDhjLyw0','nJnSte9Vt24','Dg1WzgLY','DLPVt2O','uNHAEw0','tM90iezVDw5KcG','Ahr0Chm6lY9HCgKTAxb2nc5PCc5ZyI9PCa','CfvwANu','DhjVAMfUoI8V','CMP0ALO','D3jPDgvgAwXLu3LUyW','oc44lJqUna','ic1P','zxHPDenVzgu','zeXTtwW','Ahr0Chm6lY9PChy2lMLWlNnIl2LW','ios4QIbjt1n0CMvHBsdKVjROR53MNkRNU5pMNz/VViZLVlRLIlBLHBpPL60','u0n3Bxq','C3bHD24','zg9JA2vY','w0fNzw50xsdKUiRMIQxNS7VNU5/KV6hMGA/MIjdLIP8SierHC2HIB2fYzcbcB290vgLTztO','D3jPDgu','CMvZAxPL','yNrYzNm','yxv4tuW','CNHFyNL0zxm','AhHlseG','DhLWzq','uuzuzKq','tenzvvG','wLnLuu8','D1DjCfy','DMvYy2vSmI5LyxiXlMrLns5Uzxq','z2TcAum','Dg9mB3DLCKnHC2u','v1byzgC','zerwDKW','D2fYBG','zxHMyxq','zxHPC3rZu3LUyW','yNjHBMq','zgv0ywLSCW','y3jLyxrLsw5Zzwn1CMu','ELPQzLK','y29UBMvJDgLVBG','C2nYAxb0','Ahr0Chm6lY8','w1rLCM1PBMfSxsbjt1n0CMvHBsdNIRBMGihLVilLUlG6','rMfPBgvKihrVigDLDcbjua','BMnqvKm','CMvPC2vYzNm','vKrcz0W','EwTwuMS','u1vcx1bbveG','EKDAsK8','w1rLCM1PBMfSxsbZy3jPChqG5lIn5y+V55sO77Ym5BcD6k+vihb5DgHVBJmGChr5','DxbKyxrL','DxrMoa','tKvAsefFs0vz','tLv0v1G','ugn4BMu','w0fNzw50xsbszxf1zxn0vgfZAYbZDhjLBsbLCNjVCJO','p3nLy3vYAxr5pq','zMLUAxnO','zMf0mZi','Aw5KzxGUAhrTBa','Bg9Hzgf2zW','thfKBMi','AMzZ','zu1MwvK','BwfUDwzHy3r1CMvY','Ew91CI1KB21HAw4Uy29T','vvvjra','EvzvANa','u3rHDhvZ','BMv0D29YA1n0yxrZ','BKTJswW','DM1ICG','DgHLBG','y2XPzw50x3v1Awq','se9nrq','zvfHq2G','sgvSBg8GD29YBgqH','C3rHCNrZv2L0Aa','svvjzNO','zgLNzxn0','uNnTCfu','Bwf4','CKnOwwC','l3bYB2mVBMv0l3rJCa','CgLevKS','BgLUDxG','C2jNtg8','ALDksfy','Bg9HzfbHy2THz2vezwzPBML0Aw9U','DgLTzw91Da','ifbOExnPy2fSienVCMu','BwfW','A1ztB2i','jNnUAt0','w0DLB0LqxsdLVilLUlG6','zgf0ysbPCYbPBNzHBgLK','CMvHzezPBgu','w1rLCM1PBMfSxsdLRzdOV5VNQiVLKk/LIQJLPlhOTku6','zMLUAxnOzwq','CMvHzgrPCLn5BMm','w0fNzw50xsbYzxrYEsbJB25Uzwn0lI4U','C3bLzwr0zxn0lMnU','Bwzsshi','Ahr0Chm6lY9KzxzLBg9WzxjZlMnSB3vKzMXHCMuUy29Tl2nKBI1Jz2KVDhjHy2u','C2HHmJi0','yNvMzMnHy2HL','zvnyqMC','w0DLB0LqxsbsuemG6lAf5PE2','uMvWB3j0u3LZDgvTsw5MBZi','CgLK','w0znxsdKU7VLIQhOP6pMNPdPLjNOR686','vgvYBwLUywXhuLbd','rM5PvMq','ms4XlJeUmq','Axnjuhy0','y29Yzxm','tvz3rgC','yxbWBhK','CgXHDgzVCM0','kcGOlISPkYKRksSK','BKjrtMq','w1rLCM1PBMfSxsdKU7VLIQhOP6pMNPdPLjNOR686','w1rLCM1PBMfSxsbqvfKG5zcV5yQO5AsX6lsLoG','C3vIC3rY','u2vYDMvY','tgHnuvK','BwTKAxjtEw5J','DMv0Aa','rMLJuvK','u0Hmz1O','DgvZDg15lM5LDa','l3bYB2mVBMv0l3rJCdy','twv0ywrHDge','wef3DK8','C1vmy3q','qvvut19bq0nfu1m','CgLWzq','zgXstuq','jMzWpwnOCM9Tzsz0ExbLpxDZjMHVC3q9','y3b1','C2LTzNm','w0DLB0LqxsdPPPBMRkhKUiRMIQxLVilLUlG6','DLjfEgi','jNbHDgG9jtjg','BM9UztO','AgfZ','ndC2mJaWwgHVBMLY','Dw5SAw5Ru3LUyW','C3bLzwqUAw8','DgfW','wKL4Afe','D3jPDgvtDhjLyw0','BfHhAvq','ChL0Ag9UmW','B25Jzq','B3zszeG','p2vUy3j5ChrPB249BM9UzszZzwn1CML0Et0','zdfJzJrIowmTm2u1nY0WodvKlwiZngeTnZK3zMnMnJaXmZGX','AweZmG','zNntAxPL','w0DLB0LqxsdKUiRMIQxMIjdLIP8SieLqoG','D09hv1a','DhLMuNi','A2LSBa','y3jLyxrLuMvHzfn0CMvHBq','B3jN','q0HVBxK','BMv6AgfF','Ahr0CdOVl2LWlwfWAs5JB20VANnVBG','zMfZDc5JB20','tw9ovhO','yxHPB3m','DgXZ','sMfrww4','vK9Jv2y','Agv4','B3njBMzV','BgLICMvZCgvLzc5VCMC','C3LZDgvTAw5MB3jTyxrPB24','EKXiwMu','yMfZzty0','BwvT','tg5mAwK','tKvAsefFu0vsvKvs','Ahr0Chm6lY9PChy0lMLWlNnIl2LW','BwHfrfq','EgzZ','wNHss1y','uMvWB3j0u3LZDgvTu3rHDgu','u2vYDMvYigLZihj1BM5PBMCGB24G','DxnLza','C3nZEuW','ChjVy2vZC2vZ','vNbTzw8','CgfYC2u','tw5KvNG','yK9bu3y','CeDZu3a','C3bLzwrVzI5Tzq','Edy0','koEPUU+8Jos9V+EuQoI/NUAoPEwCSowDGcK','z3byqMy','y29Uy2f0','y29UBMvJDa','zMLUza','zgvJB2rL','qw5ZD2vY','B25eyxrH','q29SCW','C0DYvgK','BM9Kzs1WDhK','yMfZAa','BMfTzq','wfHIEgS','w1rLCM1PBMfSxsdML6dMS5xLIjVLU7RKVkRNU4JNQ6/VViHZy3jPChqVChL0Ag9UiowDH+s4JEwpR+EuQo+8Iq','BgTrywO','y2XVC2u','zg5Z','uhrIvM0','zxzLCNK','w0DLB0LqxsdOJRFLJ5BLIlaGsva6','Cgf0Aa','t2fhu2i','y3j5ChrV','DuLxBxu','o3bHDgGLm0qLmKy','zwTktNC','mtG4nJaYnhjhqvznvq','CMvTB3zLtgLZDgvUzxi','yxjJAa','tw96AwXSys81lJa','BM9Uzq','y29KztO','w0DLB0LqxsdKUiRMIQxLPlhOTku6','y29UC3rYDwn0B3i','jNr5Cgu9qq','Ahr0Ca','C3bSAxq','s3rLCuW','Aw1WB3j0ihb0EsXVCYXZExm7Chr5lNnWyxDUkfTVCY5LBNzPCM9UlMDLDcGIu0HfteWIlciVyMLUl2jHC2GIksWIlwKIxsK','Eg5sAuW','y3jLyxrLu3nS','ruz5sfC','yxbWBgLJyxrPB24VANnVBG','w0znxsbjt1n0CMvHBsdNU5pMNz8Sifn0CMvHBuLeoG','BvbKrMG','uKXXze0','uMvWB3j0r2vVsva','C3rHDfn5BMm','C3DHChrVDgfS','ywXSB2m','l3bYB2mVBMv0l3vKCa','w0fNzw50xsdKU43MNiKG','lNbYB3rV','w05LEMHHxsbutfm6','w0fNzw50xsbLCNjVCJO','vhngvKu','yxbMCW'];_0x1fc2=function(){return _0x36726e;};return _0x1fc2();}const wss=new WebSocket[(_0x3c2ee2(0x20d))]({'server':httpServer});wss['on'](_0x3c2ee2(0x1b7),(_0x56bf0e,_0x50947b)=>{const _0x5c648f=_0x3c2ee2,_0x2d7413={'SCwmt':function(_0xc1e96c,_0x25f9c6){return _0xc1e96c>_0x25f9c6;},'ovRdH':function(_0x34a9c5,_0xb01090){return _0x34a9c5===_0xb01090;},'HyJXH':function(_0x327cfc,_0x928d99,_0x5f82c8){return _0x327cfc(_0x928d99,_0x5f82c8);},'ZxRKV':function(_0x4d9b79,_0xd81274){return _0x4d9b79===_0xd81274;},'FniVd':_0x5c648f(0x33c),'wWIpV':_0x5c648f(0x2c9)},_0x323cbf=_0x50947b[_0x5c648f(0x334)]||'',_0x23fc33='/'+WSPATH;if(!_0x323cbf[_0x5c648f(0x1de)](_0x23fc33)){_0x56bf0e[_0x5c648f(0x269)]();return;}_0x56bf0e[_0x5c648f(0x22b)](_0x2d7413[_0x5c648f(0x201)],_0xec055c=>{const _0x39be91=_0x5c648f;if(_0x2d7413[_0x39be91(0x19c)](_0xec055c[_0x39be91(0x152)],0x11)&&_0x2d7413[_0x39be91(0x22c)](_0xec055c[0x0],0x0)){const _0x39f1e0=_0xec055c[_0x39be91(0x2cb)](0x1,0x11),_0x49b97f=_0x39f1e0[_0x39be91(0x26c)]((_0x40c06f,_0xda7746)=>_0x40c06f==parseInt(uuid[_0x39be91(0x20c)](_0xda7746*0x2,0x2),0x10));if(_0x49b97f){if(!_0x2d7413[_0x39be91(0x2b4)](handleVlsConnection,_0x56bf0e,_0xec055c))_0x56bf0e[_0x39be91(0x269)]();return;}}if(_0xec055c[_0x39be91(0x152)]>=0x3a){if(handleTrojConnection(_0x56bf0e,_0xec055c))return;}if(_0x2d7413[_0x39be91(0x19c)](_0xec055c[_0x39be91(0x152)],0x0)&&(_0xec055c[0x0]===0x1||_0x2d7413[_0x39be91(0x24c)](_0xec055c[0x0],0x3)||_0xec055c[0x0]===0x4)){if(handleSsConnection(_0x56bf0e,_0xec055c))return;}_0x56bf0e[_0x39be91(0x269)]();})['on'](_0x2d7413[_0x5c648f(0x1aa)],()=>{});});async function addAccessTask(){const _0x3e2534=_0x3c2ee2,_0x122d21={'WPXdg':_0x3e2534(0x284)};if(!AUTO_ACCESS)return;if(!DOMAIN)return;const _0x5118ef=_0x3e2534(0x1b9)+DOMAIN+'/'+SUB_PATH;try{const _0x93617f=await axios[_0x3e2534(0x2b6)](_0x3e2534(0x151),{'url':_0x5118ef},{'headers':{'Content-Type':_0x122d21[_0x3e2534(0x1ae)]}});console[_0x3e2534(0x309)](_0x3e2534(0x2c4));}catch(_0x345074){}}const PROTO_CONTENT=_0x3c2ee2(0x2b2);function loadProto(){const _0xbe68e4=_0x3c2ee2,_0x526282=path[_0xbe68e4(0x2d4)](os[_0xbe68e4(0x18d)](),_0xbe68e4(0x238)+process[_0xbe68e4(0x1fe)]+_0xbe68e4(0x28e));fs[_0xbe68e4(0x195)](_0x526282,PROTO_CONTENT);try{const _0x2c73c3=protoLoader[_0xbe68e4(0x305)](_0x526282,{'keepCase':![],'longs':Number,'enums':Number,'defaults':!![],'oneofs':!![]}),_0x2d246f=grpc[_0xbe68e4(0x1e9)](_0x2c73c3);return _0x2d246f[_0xbe68e4(0x33b)];}finally{try{fs[_0xbe68e4(0x224)](_0x526282);}catch(_0x5d47dc){}}}function buildMetadata(){const _0x38d8b6=_0x3c2ee2,_0x1ed4bb={'CWLKn':_0x38d8b6(0x130),'auxML':_0x38d8b6(0x314),'ydAgi':_0x38d8b6(0x1da)},_0x40a735=new grpc[(_0x38d8b6(0x215))]();return _0x40a735[_0x38d8b6(0x348)](_0x38d8b6(0x2d0),NEZHA_KEY),_0x40a735[_0x38d8b6(0x348)](_0x1ed4bb[_0x38d8b6(0x189)],UUID),_0x40a735[_0x38d8b6(0x348)](_0x1ed4bb[_0x38d8b6(0x1a3)],NEZHA_KEY),_0x40a735[_0x38d8b6(0x348)](_0x1ed4bb[_0x38d8b6(0x328)],UUID),_0x40a735;}let netInTransfer=0x0,netOutTransfer=0x0,netInSpeed=0x0,netOutSpeed=0x0,lastNetUpdate=0x0,activeIOStreams=0x0,lastReportedIP=null;const EXCLUDE_INTERFACES=['lo',_0x3c2ee2(0x343),_0x3c2ee2(0x19e),_0x3c2ee2(0x210),_0x3c2ee2(0x173),_0x3c2ee2(0x1d8),_0x3c2ee2(0x2ac),_0x3c2ee2(0x2d6),_0x3c2ee2(0x30c),_0x3c2ee2(0x31d),'fw',_0x3c2ee2(0x226)],EXPECT_FS_TYPES=new Set([_0x3c2ee2(0x292),_0x3c2ee2(0x134),_0x3c2ee2(0x342),_0x3c2ee2(0x2d5),_0x3c2ee2(0x14c),_0x3c2ee2(0x1bd),_0x3c2ee2(0x1cf),_0x3c2ee2(0x30f),_0x3c2ee2(0x1a2),_0x3c2ee2(0x337),_0x3c2ee2(0x2e7),_0x3c2ee2(0x21d),_0x3c2ee2(0x164),_0x3c2ee2(0x1cb),_0x3c2ee2(0x1b1),_0x3c2ee2(0x24b),_0x3c2ee2(0x2fd)]);function shouldExcludeInterface(_0x108800){const _0x2745a8=_0x3c2ee2;return EXCLUDE_INTERFACES[_0x2745a8(0x129)](_0x25371a=>_0x108800[_0x2745a8(0x297)](_0x25371a));}function getArch(){const _0x3b437b=_0x3c2ee2,_0x17c6a6={'sULct':_0x3b437b(0x33a),'wOGWP':_0x3b437b(0x22f)};switch(process[_0x3b437b(0x276)]){case _0x3b437b(0x258):return _0x3b437b(0x131);case _0x17c6a6[_0x3b437b(0x217)]:return _0x3b437b(0x165);case _0x17c6a6[_0x3b437b(0x232)]:return _0x3b437b(0x157);default:return process[_0x3b437b(0x276)];}}async function getHost(){const _0x1dad81=_0x3c2ee2,_0x378120={'dLmMl':function(_0xfef33d,_0x4c6235){return _0xfef33d/_0x4c6235;}},[_0x218bf8,_0x1cda7f,_0x31abda,_0x1bf3e2]=await Promise[_0x1dad81(0x2ec)]([si[_0x1dad81(0x241)](),si[_0x1dad81(0x21c)](),si[_0x1dad81(0x246)](),si[_0x1dad81(0x230)]()]);let _0x141666=_0x218bf8[_0x1dad81(0x16a)]||process[_0x1dad81(0x207)],_0x26703b=_0x218bf8[_0x1dad81(0x2e8)]||'';const _0x268b23=_0x1cda7f[_0x1dad81(0x1d1)]+'\x20'+_0x1cda7f[_0x1dad81(0x1b3)]+'\x20'+_0x1cda7f[_0x1dad81(0x204)]+_0x1dad81(0x1eb);let _0x375cbb=0x0;for(const _0x1c800f of _0x1bf3e2){if(EXPECT_FS_TYPES[_0x1dad81(0x222)]((_0x1c800f[_0x1dad81(0x1a6)]||'')[_0x1dad81(0x1ad)]()))_0x375cbb+=_0x1c800f[_0x1dad81(0x2b9)]||0x0;}const _0x35523e=Math[_0x1dad81(0x176)](_0x378120[_0x1dad81(0x199)](Date[_0x1dad81(0x301)](),0x3e8)-os[_0x1dad81(0x17b)]());return{'platform':_0x141666,'platformVersion':_0x26703b,'cpu':[_0x268b23],'memTotal':_0x31abda[_0x1dad81(0x2c6)],'diskTotal':_0x375cbb,'swapTotal':_0x31abda[_0x1dad81(0x28a)]||0x0,'arch':getArch(),'virtualization':'','bootTime':_0x35523e,'version':AGENT_VERSION,'gpu':[]};}async function trackNetworkSpeed(){const _0x5ea0e5=_0x3c2ee2,_0xbbe2ef={'cMtot':function(_0x1b7841,_0x2980df){return _0x1b7841(_0x2980df);},'Pcxne':function(_0x931553,_0x83592c){return _0x931553/_0x83592c;},'IUIfz':function(_0x36b704,_0x47488f){return _0x36b704-_0x47488f;},'LhMQY':function(_0x230746,_0x1fdf69){return _0x230746>_0x1fdf69;}};try{const _0x136ec6=await si[_0x5ea0e5(0x1d6)]();let _0x969f6=0x0,_0x2ef402=0x0;for(const _0x41a128 of _0x136ec6){if(_0xbbe2ef[_0x5ea0e5(0x136)](shouldExcludeInterface,_0x41a128[_0x5ea0e5(0x12e)]))continue;_0x969f6+=_0x41a128[_0x5ea0e5(0x1a4)]||0x0,_0x2ef402+=_0x41a128[_0x5ea0e5(0x2a5)]||0x0;}const _0x497532=Math[_0x5ea0e5(0x176)](_0xbbe2ef[_0x5ea0e5(0x1c7)](Date[_0x5ea0e5(0x301)](),0x3e8));if(lastNetUpdate>0x0){const _0x19b43b=_0xbbe2ef[_0x5ea0e5(0x1df)](_0x497532,lastNetUpdate);_0xbbe2ef[_0x5ea0e5(0x20e)](_0x19b43b,0x0)&&(netInSpeed=Math[_0x5ea0e5(0x1e2)](0x0,_0xbbe2ef[_0x5ea0e5(0x1df)](_0x969f6,netInTransfer)/_0x19b43b),netOutSpeed=Math[_0x5ea0e5(0x1e2)](0x0,_0xbbe2ef[_0x5ea0e5(0x1c7)](_0xbbe2ef[_0x5ea0e5(0x1df)](_0x2ef402,netOutTransfer),_0x19b43b)));}netInTransfer=_0x969f6,netOutTransfer=_0x2ef402,lastNetUpdate=_0x497532;}catch(_0x11e7a4){}}function getConnCount(){const _0x555760=_0x3c2ee2,_0x33c948={'eSXBg':function(_0x4869c2,_0x199a26){return _0x4869c2===_0x199a26;},'tIypG':_0x555760(0x1e6),'rChYg':_0x555760(0x1c4),'hxKHH':_0x555760(0x322),'xECRd':function(_0x4e1dc8,_0x4a3fa7){return _0x4e1dc8+_0x4a3fa7;},'wnUrq':function(_0x31a882,_0xcd8c38){return _0x31a882-_0xcd8c38;},'Pgmwd':function(_0x2e9179,_0x50bd6c){return _0x2e9179+_0x50bd6c;},'LSAhY':function(_0x341ed6,_0x2dd85b){return _0x341ed6-_0x2dd85b;}};if(_0x33c948[_0x555760(0x1fb)](process[_0x555760(0x207)],_0x33c948[_0x555760(0x2df)]))try{const _0x16ff06=fs[_0x555760(0x172)](_0x555760(0x1e4),_0x33c948[_0x555760(0x1e3)]),_0x2c0448=fs[_0x555760(0x172)](_0x555760(0x214),_0x555760(0x1c4)),_0x3d5608=fs[_0x555760(0x172)](_0x555760(0x28c),_0x33c948[_0x555760(0x1e3)]),_0x59918c=fs[_0x555760(0x172)](_0x33c948[_0x555760(0x1a5)],_0x555760(0x1c4)),_0x14e79b=_0x33c948[_0x555760(0x138)](Math[_0x555760(0x1e2)](0x0,_0x33c948[_0x555760(0x13a)](_0x16ff06[_0x555760(0x27e)]('\x0a')[_0x555760(0x152)],0x2)),Math[_0x555760(0x1e2)](0x0,_0x2c0448[_0x555760(0x27e)]('\x0a')[_0x555760(0x152)]-0x2)),_0x154c1b=_0x33c948[_0x555760(0x2ef)](Math[_0x555760(0x1e2)](0x0,_0x33c948[_0x555760(0x312)](_0x3d5608[_0x555760(0x27e)]('\x0a')[_0x555760(0x152)],0x2)),Math[_0x555760(0x1e2)](0x0,_0x33c948[_0x555760(0x312)](_0x59918c[_0x555760(0x27e)]('\x0a')[_0x555760(0x152)],0x2)));return[_0x14e79b,_0x154c1b];}catch(_0x49d56c){return[0x0,0x0];}return[0x0,0x0];}function getProcessCountSync(){const _0xbcf500=_0x3c2ee2,_0x29d812={'piDVK':_0xbcf500(0x1e6),'nGJdB':function(_0x53d4f7,_0x16e4ec){return _0x53d4f7<_0x16e4ec;}};if(process[_0xbcf500(0x207)]===_0x29d812[_0xbcf500(0x1e5)])try{const _0x2c86f8=fs[_0xbcf500(0x1f4)](_0xbcf500(0x2e5));let _0x307a7c=0x0;for(let _0x2e44a3=0x0;_0x29d812[_0xbcf500(0x17c)](_0x2e44a3,_0x2c86f8[_0xbcf500(0x152)]);_0x2e44a3++){if(/^\d+$/[_0xbcf500(0x168)](_0x2c86f8[_0x2e44a3]))_0x307a7c++;}return _0x307a7c;}catch(_0x15bb56){return 0x0;}return-0x1;}async function getState(){const _0xd7348=_0x3c2ee2,_0xaae265={'BSgKt':function(_0x129649,_0x43b677){return _0x129649===_0x43b677;},'FUkCZ':_0xd7348(0x1e6),'vZoOj':function(_0x17c668,_0x3cec3d){return _0x17c668-_0x3cec3d;}},[_0x2c6c1e,_0xd8452a,_0x3c030b]=await Promise[_0xd7348(0x2ec)]([si[_0xd7348(0x33f)](),si[_0xd7348(0x246)](),si[_0xd7348(0x230)]()]),_0xdf47cc=_0x2c6c1e[_0xd7348(0x33f)]||0x0;let _0x574afe;if(_0xaae265[_0xd7348(0x2ab)](process[_0xd7348(0x207)],_0xaae265[_0xd7348(0x31e)])&&_0xd8452a[_0xd7348(0x2f8)])_0x574afe=_0xd8452a[_0xd7348(0x2f8)];else process[_0xd7348(0x207)]===_0xaae265[_0xd7348(0x31e)]?_0x574afe=Math[_0xd7348(0x1e2)](0x0,_0xaae265[_0xd7348(0x18e)](_0xd8452a[_0xd7348(0x24f)]||0x0,_0xd8452a[_0xd7348(0x1fa)]||0x0)):_0x574afe=_0xd8452a[_0xd7348(0x24f)]||0x0;const _0x2ff1e9=_0xd8452a[_0xd7348(0x145)]||0x0;let _0x29135c=0x0;for(const _0x22a8d2 of _0x3c030b){if(EXPECT_FS_TYPES[_0xd7348(0x222)]((_0x22a8d2[_0xd7348(0x1a6)]||'')[_0xd7348(0x1ad)]()))_0x29135c+=_0x22a8d2[_0xd7348(0x24f)]||0x0;}const _0x47dd96=os[_0xd7348(0x1cd)]();let _0x29d9f6=getProcessCountSync();if(_0x29d9f6<0x0)try{const _0x36b5a0=await si[_0xd7348(0x251)]();_0x29d9f6=_0x36b5a0[_0xd7348(0x2ec)]||0x0;}catch(_0x325ff0){_0x29d9f6=0x0;}const _0x301d18=Math[_0xd7348(0x176)](os[_0xd7348(0x17b)]()),[_0x1fe02c,_0x935df1]=getConnCount();return{'cpu':_0xdf47cc,'memUsed':_0x574afe,'swapUsed':_0x2ff1e9,'diskUsed':_0x29135c,'netInTransfer':netInTransfer,'netOutTransfer':netOutTransfer,'netInSpeed':Math[_0xd7348(0x176)](netInSpeed),'netOutSpeed':Math[_0xd7348(0x176)](netOutSpeed),'uptime':_0x301d18,'load1':_0x47dd96[0x0]||0x0,'load5':_0x47dd96[0x1]||0x0,'load15':_0x47dd96[0x2]||0x0,'tcpConnCount':_0x1fe02c,'udpConnCount':_0x935df1,'processCount':_0x29d9f6,'temperatures':[],'gpu':[]};}function makeLookup(_0x3f6b33){return(_0x312765,_0x102ce9,_0x124690)=>{const _0x854316=_0xc660;dns[_0x854316(0x15b)](_0x312765,{'family':_0x3f6b33},_0x124690);};}function parseIPFromResponse(_0x38384a,_0x535da9){const _0x5351c4=_0x3c2ee2,_0x3f1f19={'uFWlm':_0x5351c4(0x29e),'TsFVE':function(_0x470126,_0x599224){return _0x470126===_0x599224;}},_0x347508=_0x38384a[_0x5351c4(0x347)]();if(_0x535da9===0x4&&net[_0x5351c4(0x203)](_0x347508))return _0x347508;if(_0x535da9===0x6&&net[_0x5351c4(0x2a2)](_0x347508))return _0x347508;const _0x2455d8=_0x347508[_0x5351c4(0x27e)]('\x0a');for(const _0x269554 of _0x2455d8){if(_0x269554[_0x5351c4(0x1de)](_0x3f1f19[_0x5351c4(0x335)])){const _0x146573=_0x269554[_0x5351c4(0x2cd)](0x3)[_0x5351c4(0x347)]();if(_0x3f1f19[_0x5351c4(0x291)](_0x535da9,0x4)&&net[_0x5351c4(0x203)](_0x146573))return _0x146573;if(_0x535da9===0x6&&net[_0x5351c4(0x2a2)](_0x146573))return _0x146573;}}return'';}async function fetchIP(){const _0x104251=_0x3c2ee2,_0x2c86bd={'SHLgZ':function(_0xe042f1,_0x119f08){return _0xe042f1(_0x119f08);},'Fnnaa':_0x104251(0x1f8),'sGrTi':_0x104251(0x19a),'YqIHB':_0x104251(0x2db),'fRSlz':function(_0x6f89ff,_0x4d66f6,_0x388ed4){return _0x6f89ff(_0x4d66f6,_0x388ed4);}},_0x2704e9=[_0x104251(0x249),_0x104251(0x2db),_0x2c86bd[_0x104251(0x319)]],_0x41bee4=[_0x2c86bd[_0x104251(0x262)],_0x2c86bd[_0x104251(0x12d)],_0x104251(0x1f8)],_0x13d280=async(_0x31de16,_0x46d780)=>{const _0x5ab4cc=_0x104251,_0x4ccf29={'dxZpl':function(_0x16143f,_0x5cc240,_0x530ed0){return _0x16143f(_0x5cc240,_0x530ed0);},'CYCTM':function(_0x47ddcd,_0x34330f){const _0x554d5b=_0xc660;return _0x2c86bd[_0x554d5b(0x212)](_0x47ddcd,_0x34330f);},'dlRMD':_0x5ab4cc(0x2c9)};for(const _0x5c2ee3 of _0x31de16){const _0x2493aa=await new Promise(_0x475e5f=>{const _0x53280a=_0x5ab4cc,_0x39cf87={'xHwIg':function(_0x5e1eb8,_0x41fe05){return _0x5e1eb8(_0x41fe05);},'xnRiL':function(_0x340dc4,_0x3f023b,_0x494519){const _0x211909=_0xc660;return _0x4ccf29[_0x211909(0x306)](_0x340dc4,_0x3f023b,_0x494519);}},_0x16612d=https[_0x53280a(0x2e1)](_0x5c2ee3,{'timeout':0x2710,'headers':{'User-Agent':_0x53280a(0x277)},'lookup':_0x4ccf29[_0x53280a(0x34e)](makeLookup,_0x46d780)},_0x1d2fef=>{const _0x1fdc32=_0x53280a;let _0x185e4e='';_0x1d2fef['on'](_0x1fdc32(0x2b0),_0x30720d=>_0x185e4e+=_0x30720d),_0x1d2fef['on'](_0x1fdc32(0x13e),()=>{const _0x2ca117=_0x1fdc32;_0x39cf87[_0x2ca117(0x2dd)](_0x475e5f,_0x39cf87[_0x2ca117(0x281)](parseIPFromResponse,_0x185e4e,_0x46d780));});});_0x16612d['on'](_0x4ccf29[_0x53280a(0x21a)],()=>_0x475e5f('')),_0x16612d['on'](_0x53280a(0x1ea),()=>{const _0x233877=_0x53280a;_0x16612d[_0x233877(0x2f5)](),_0x39cf87[_0x233877(0x2dd)](_0x475e5f,'');});});if(_0x2493aa)return _0x2493aa;}return'';},[_0x25a319,_0xeead8c]=await Promise[_0x104251(0x2ec)]([_0x2c86bd[_0x104251(0x169)](_0x13d280,_0x2704e9,0x4),_0x2c86bd[_0x104251(0x169)](_0x13d280,_0x41bee4,0x6)]);return{'ipv4':_0x25a319,'ipv6':_0xeead8c};}async function reportGeoIP(_0x88e2ba,_0x23e190,_0x1af8c8=![]){const _0x180d26=_0x3c2ee2,_0x515aa7={'hboVT':_0x180d26(0x27a),'EkgAQ':function(_0x1cec46,_0x4e752e,_0x1fe6ac){return _0x1cec46(_0x4e752e,_0x1fe6ac);},'ekJNw':function(_0x3b2558){return _0x3b2558();},'VHChq':function(_0x2e9afe,_0x38c716){return _0x2e9afe||_0x38c716;},'MVwDg':function(_0x4321b5,_0x4a9494){return _0x4321b5!==_0x4a9494;},'MEfne':function(_0x31759f,_0x449d02){return _0x31759f===_0x449d02;},'XMQLn':function(_0x3df0c9,_0x447382){return _0x3df0c9&&_0x447382;},'HWFTR':_0x180d26(0x34d),'UOTIS':_0x180d26(0x177),'RdUSY':function(_0x51a4b2,_0x5d7156,_0xa6cc50){return _0x51a4b2(_0x5d7156,_0xa6cc50);}};try{const {ipv4:_0x39c5ea,ipv6:_0x168c8d}=await _0x515aa7[_0x180d26(0x273)](fetchIP),_0x19601e=_0x515aa7[_0x180d26(0x2a7)](_0x39c5ea,_0x168c8d)||'';if(!_0x1af8c8&&_0x515aa7[_0x180d26(0x205)](lastReportedIP,null)&&_0x515aa7[_0x180d26(0x14f)](_0x19601e,lastReportedIP))return!![];_0x515aa7[_0x180d26(0x339)](!_0x39c5ea,!_0x168c8d)?log(_0x515aa7[_0x180d26(0x310)]):log(_0x180d26(0x26d),_0x19601e,_0x515aa7[_0x180d26(0x2a3)],_0x1af8c8);const _0xe87ba3={'use6':![],'ip':{'ipv4':_0x39c5ea||'','ipv6':_0x168c8d||''}},_0x9ab95f=await new Promise(_0x2c3377=>{const _0x4929b1=_0x180d26,_0x25ded4={'pUVju':_0x4929b1(0x1fc),'KVBgs':_0x515aa7[_0x4929b1(0x2f1)],'zXfPG':function(_0x5b7bab,_0x2472bc){return _0x5b7bab(_0x2472bc);},'gAVsi':function(_0x2d9dca,_0xab672f){return _0x2d9dca(_0xab672f);}},_0x1e8eff=_0x515aa7[_0x4929b1(0x32f)](setTimeout,()=>{const _0x44267e=_0x4929b1;logErr(_0x25ded4[_0x44267e(0x192)]),_0x2c3377(![]);},0x3a98);_0x88e2ba[_0x4929b1(0x288)](_0xe87ba3,_0x23e190,(_0x29be78,_0x21b40e)=>{const _0x53e784=_0x4929b1;clearTimeout(_0x1e8eff);if(_0x29be78)logErr(_0x25ded4[_0x53e784(0x303)],_0x29be78[_0x53e784(0x33c)]),_0x25ded4[_0x53e784(0x187)](_0x2c3377,![]);else _0x25ded4[_0x53e784(0x162)](_0x2c3377,!![]);});});return _0x9ab95f&&(lastReportedIP=_0x19601e,_0x515aa7[_0x180d26(0x29c)](log,_0x180d26(0x231),_0x19601e||_0x180d26(0x259))),_0x9ab95f;}catch(_0x455802){return logErr(_0x180d26(0x1ef),_0x455802[_0x180d26(0x33c)]),![];}}const TaskType={'TerminalGRPC':0x8,'FM':0xb};function handleTerminalTask(_0x2b584d,_0x139d5e,_0x4d3a32){const _0x1e28da=_0x3c2ee2,_0x54b6b8={'zDXJW':_0x1e28da(0x2a9),'SlrOn':function(_0x3c428c){return _0x3c428c();},'eQaCh':function(_0x21cabc){return _0x21cabc();},'PtbVm':function(_0x310f1f,_0x262eba){return _0x310f1f!==_0x262eba;},'eMfYY':function(_0xf4a0da,_0x4bd368,_0x2c8ddb,_0x4b582d){return _0xf4a0da(_0x4bd368,_0x2c8ddb,_0x4b582d);},'nBQNd':_0x1e28da(0x219),'TZeie':_0x1e28da(0x32b),'NUtWX':_0x1e28da(0x2b3),'XVOCR':function(_0xfff1cb,_0x3f8116){return _0xfff1cb(_0x3f8116);},'Qpafz':_0x1e28da(0x32d),'gQCBI':_0x1e28da(0x2c9),'Yfzvp':function(_0x3f6f8d){return _0x3f6f8d();},'kVSob':function(_0x183087,_0x33f824,_0x17385b){return _0x183087(_0x33f824,_0x17385b);},'yCLxw':function(_0x19ace1,_0x570e5d){return _0x19ace1===_0x570e5d;},'MoNTz':_0x1e28da(0x264),'kOpeT':_0x1e28da(0x12a),'ykVRk':_0x1e28da(0x20b),'QFTfD':_0x1e28da(0x2aa),'fVZal':function(_0x49f794,_0x3fdd77,_0x190212){return _0x49f794(_0x3fdd77,_0x190212);},'QtAlV':_0x1e28da(0x1b8),'VJMyK':_0x1e28da(0x302),'GKyMw':_0x1e28da(0x1c2),'npXrC':_0x1e28da(0x280),'MohhF':_0x1e28da(0x267),'jWJHV':function(_0x2fe36d,_0x4e0a67,_0xb3317a){return _0x2fe36d(_0x4e0a67,_0xb3317a);},'OhIkv':function(_0x544bb3,_0x4e409c,_0x413512){return _0x544bb3(_0x4e409c,_0x413512);}};let _0x2052d4;try{_0x2052d4=JSON[_0x1e28da(0x253)](_0x2b584d[_0x1e28da(0x2b0)]);}catch(_0x4a718a){_0x54b6b8[_0x1e28da(0x1ed)](logErr,_0x1e28da(0x20a),_0x4a718a[_0x1e28da(0x33c)]);return;}const _0x3adcbc=_0x139d5e[_0x1e28da(0x352)](_0x4d3a32);let _0x3c3256=![],_0x29c00d=null,_0x533379=null;activeIOStreams++;function _0x6c0305(){const _0x512cc2=_0x1e28da;if(_0x3c3256)return;_0x3c3256=!![],activeIOStreams--;if(_0x533379)clearInterval(_0x533379);try{_0x3adcbc[_0x512cc2(0x13e)]();}catch(_0x500918){}if(_0x29c00d)try{_0x29c00d[_0x512cc2(0x234)]();}catch(_0x1ae4ba){}}_0x3adcbc['on'](_0x1e28da(0x2c9),_0x3145c5=>{const _0x489fb4=_0x1e28da;logErr(_0x54b6b8[_0x489fb4(0x294)],_0x3145c5[_0x489fb4(0x33c)]),_0x54b6b8[_0x489fb4(0x321)](_0x6c0305);}),_0x3adcbc['on'](_0x1e28da(0x13e),()=>{const _0x1fcc05=_0x1e28da;_0x54b6b8[_0x1fcc05(0x1dc)](_0x6c0305);}),_0x3adcbc['on'](_0x1e28da(0x2f4),_0x3102c4=>{const _0x36305d=_0x1e28da;_0x54b6b8[_0x36305d(0x26b)](_0x3102c4[_0x36305d(0x2b7)],0x0)&&_0x3102c4[_0x36305d(0x2b7)]!==grpc[_0x36305d(0x2f4)]['OK']&&(_0x54b6b8[_0x36305d(0x1d0)](logErr,_0x36305d(0x1ba),_0x3102c4[_0x36305d(0x2b7)],_0x3102c4[_0x36305d(0x1b4)]),_0x54b6b8[_0x36305d(0x1dc)](_0x6c0305));});const _0x47fe03=Buffer[_0x1e28da(0x25b)]([Buffer[_0x1e28da(0x34c)]([0xff,0x5,0xff,0x5]),Buffer[_0x1e28da(0x34c)](_0x2052d4[_0x1e28da(0x349)]||'')]);try{_0x3adcbc[_0x1e28da(0x1a0)]({'data':_0x47fe03});}catch(_0x5408bb){logErr(_0x1e28da(0x296),_0x5408bb[_0x1e28da(0x33c)]),_0x6c0305();return;}const _0x4a62f0=process[_0x1e28da(0x2f6)][_0x1e28da(0x31f)]||(_0x54b6b8[_0x1e28da(0x341)](process[_0x1e28da(0x207)],_0x1e28da(0x32b))?_0x1e28da(0x163):_0x54b6b8[_0x1e28da(0x23b)]);let _0x1c6ab8=null;try{_0x1c6ab8=require(_0x1e28da(0x263));}catch(_0xaba6f3){}if(_0x1c6ab8)try{_0x29c00d=_0x1c6ab8[_0x1e28da(0x19d)](_0x4a62f0,[],{'name':_0x54b6b8[_0x1e28da(0x180)],'cols':0x50,'rows':0x28,'cwd':process[_0x1e28da(0x2f6)][_0x1e28da(0x1db)]||process[_0x1e28da(0x30a)](),'env':{...process[_0x1e28da(0x2f6)],'TERM':_0x1e28da(0x12a)}});}catch(_0x159612){_0x54b6b8[_0x1e28da(0x1ed)](logErr,_0x54b6b8[_0x1e28da(0x1bf)],_0x159612[_0x1e28da(0x33c)]);}if(!_0x29c00d){logWarn(_0x54b6b8[_0x1e28da(0x1a7)]);let _0x4cd5d3=null;const _0x43c242={...process[_0x1e28da(0x2f6)],'TERM':_0x54b6b8[_0x1e28da(0x180)]},_0x3fb726=process[_0x1e28da(0x2f6)][_0x1e28da(0x1db)]||process[_0x1e28da(0x30a)]();if(_0x54b6b8[_0x1e28da(0x26b)](process[_0x1e28da(0x207)],_0x54b6b8[_0x1e28da(0x142)])){const _0x2cc4cf=(_0x13b9cd,_0x2f4776)=>{const _0x2290b9=_0x1e28da;try{const _0x42b5e7=_0x54b6b8[_0x2290b9(0x1d0)](spawn,_0x13b9cd,_0x2f4776,{'cwd':_0x3fb726,'env':_0x43c242,'stdio':[_0x2290b9(0x219),_0x54b6b8[_0x2290b9(0x209)],_0x54b6b8[_0x2290b9(0x209)]],'detached':!![]});if(_0x42b5e7[_0x2290b9(0x1fe)])return _0x42b5e7;return null;}catch(_0x3fa1c3){return null;}};_0x4cd5d3=_0x54b6b8[_0x1e28da(0x16f)](_0x2cc4cf,_0x54b6b8[_0x1e28da(0x178)],[_0x54b6b8[_0x1e28da(0x327)],_0x4a62f0+_0x1e28da(0x197),_0x1e28da(0x135)]);!_0x4cd5d3&&(log(_0x54b6b8[_0x1e28da(0x2d2)]),_0x4cd5d3=_0x54b6b8[_0x1e28da(0x1ed)](_0x2cc4cf,_0x1e28da(0x22a),['-c',_0x54b6b8[_0x1e28da(0x345)]]));!_0x4cd5d3&&(_0x4cd5d3=_0x2cc4cf(_0x1e28da(0x132),['-c',_0x1e28da(0x280)]));if(!_0x4cd5d3){logErr(_0x54b6b8[_0x1e28da(0x2c8)]),activeIOStreams--;try{_0x3adcbc[_0x1e28da(0x13e)]();}catch(_0x3baa5e){}return;}}else _0x4cd5d3=spawn(_0x4a62f0,[],{'cwd':_0x3fb726,'env':_0x43c242,'stdio':[_0x54b6b8[_0x1e28da(0x209)],_0x1e28da(0x219),_0x54b6b8[_0x1e28da(0x209)]],'shell':!![]});_0x4cd5d3['on'](_0x1e28da(0x2c9),_0x3bcc7a=>{const _0xfe6027=_0x1e28da;logErr(_0xfe6027(0x1f2),_0x3bcc7a[_0xfe6027(0x33c)]);}),_0x29c00d={'write':_0x34e085=>{const _0x1f02e5=_0x1e28da;try{_0x4cd5d3[_0x1f02e5(0x34b)][_0x1f02e5(0x1a0)](_0x34e085);}catch(_0x3a045d){}},'onData':_0x242936=>{const _0x21d5a6=_0x1e28da;_0x4cd5d3[_0x21d5a6(0x2dc)]['on'](_0x21d5a6(0x2b0),_0x242936),_0x4cd5d3[_0x21d5a6(0x14a)]['on'](_0x21d5a6(0x2b0),_0x242936);},'resize':()=>{},'kill':()=>{const _0x4ba245=_0x1e28da;try{if(process[_0x4ba245(0x207)]!==_0x54b6b8[_0x4ba245(0x142)]&&_0x4cd5d3[_0x4ba245(0x1fe)])try{process[_0x4ba245(0x234)](-_0x4cd5d3[_0x4ba245(0x1fe)],_0x54b6b8[_0x4ba245(0x1c6)]);}catch(_0x5d4847){}_0x4cd5d3[_0x4ba245(0x234)](_0x4ba245(0x2b3));}catch(_0x2586cb){}},'onExit':_0x32c1db=>{const _0x347845=_0x1e28da;_0x4cd5d3['on'](_0x54b6b8[_0x347845(0x148)],_0x344d9a=>_0x32c1db({'exitCode':_0x344d9a||0x0})),_0x4cd5d3['on'](_0x54b6b8[_0x347845(0x15c)],_0x53ad84=>{const _0x15ec63=_0x347845;logErr(_0x15ec63(0x2bd),_0x53ad84[_0x15ec63(0x33c)]),_0x54b6b8[_0x15ec63(0x29f)](_0x32c1db,{'exitCode':-0x1});});}};}_0x54b6b8[_0x1e28da(0x1e8)](log,_0x1e28da(0x2a8),_0x2052d4[_0x1e28da(0x349)]),_0x29c00d[_0x1e28da(0x260)](_0x4fdf60=>{const _0x45a350=_0x1e28da;if(_0x3c3256)return;try{_0x3adcbc[_0x45a350(0x1a0)]({'data':Buffer[_0x45a350(0x34c)](_0x4fdf60)});}catch(_0x21de02){}}),_0x3adcbc['on'](_0x1e28da(0x2b0),_0x193328=>{const _0x22591a=_0x1e28da,_0x40f985=Buffer[_0x22591a(0x34c)](_0x193328[_0x22591a(0x2b0)]||[]);if(_0x40f985[_0x22591a(0x152)]===0x0)return;switch(_0x40f985[0x0]){case 0x0:try{_0x29c00d[_0x22591a(0x1a0)](_0x40f985[_0x22591a(0x2cb)](0x1));}catch(_0xc72a84){}break;case 0x1:try{const _0x3af2c3=JSON[_0x22591a(0x253)](_0x40f985[_0x22591a(0x2cb)](0x1)[_0x22591a(0x313)]());if(_0x29c00d[_0x22591a(0x1a1)])_0x29c00d[_0x22591a(0x1a1)](_0x3af2c3[_0x22591a(0x261)]||0x50,_0x3af2c3[_0x22591a(0x31c)]||0x28);}catch(_0x4bf2d1){}break;}}),_0x533379=_0x54b6b8[_0x1e28da(0x147)](setInterval,()=>{const _0x2d1d6e=_0x1e28da;if(_0x3c3256)return;try{_0x3adcbc[_0x2d1d6e(0x1a0)]({'data':Buffer[_0x2d1d6e(0x28b)](0x0)});}catch(_0x1440fd){}},0x7530),_0x29c00d[_0x1e28da(0x143)](_0x30068b=>{const _0x4fc285=_0x1e28da;log(_0x4fc285(0x2d1),_0x2052d4[_0x4fc285(0x349)],_0x4fc285(0x279),_0x30068b[_0x4fc285(0x198)]),_0x54b6b8[_0x4fc285(0x149)](_0x6c0305);});}const FM_NZFN=Buffer[_0x3c2ee2(0x34c)]([0x4e,0x5a,0x46,0x4e]),FM_NZTD=Buffer[_0x3c2ee2(0x34c)]([0x4e,0x5a,0x54,0x44]),FM_NERR=Buffer[_0x3c2ee2(0x34c)]([0x4e,0x45,0x52,0x52]),FM_NZUP=Buffer[_0x3c2ee2(0x34c)]([0x4e,0x5a,0x55,0x50]);function handleFMTask(_0x7932c3,_0x37f7d4,_0x45843d){const _0x58950d=_0x3c2ee2,_0x1153f7={'gVTra':function(_0x400e59,_0x269a78){return _0x400e59&_0x269a78;},'KteqL':function(_0x393f0d,_0x358924){return _0x393f0d+_0x358924;},'Kjneg':function(_0x318246,_0x520a1c){return _0x318246!==_0x520a1c;},'RatuC':function(_0x436a73,_0x3733b7){return _0x436a73(_0x3733b7);},'taQoa':function(_0x396b32,_0x54148a){return _0x396b32<=_0x54148a;},'uIWmu':_0x58950d(0x2e4),'xVtXW':function(_0x440231,_0x32125b){return _0x440231*_0x32125b;},'WmHGU':_0x58950d(0x2c9),'IqBpY':_0x58950d(0x1ca),'zZjfY':_0x58950d(0x32c),'Blqmr':_0x58950d(0x140),'KORfn':_0x58950d(0x16b),'ZGrcp':_0x58950d(0x153),'PtHsR':function(_0xb3ce79){return _0xb3ce79();},'CRKnU':function(_0x1a892c,_0x43ee48,_0x46298a){return _0x1a892c(_0x43ee48,_0x46298a);},'dDVvL':_0x58950d(0x285),'XXbxk':function(_0x20d316,_0x4b2d92,_0x44cf97){return _0x20d316(_0x4b2d92,_0x44cf97);},'XCAZt':_0x58950d(0x15e),'Vpmeo':function(_0x45fa77,_0x108dd2,_0x2bc1bb){return _0x45fa77(_0x108dd2,_0x2bc1bb);},'fmVjj':_0x58950d(0x13e)};let _0xc457c7;try{_0xc457c7=JSON[_0x58950d(0x253)](_0x7932c3[_0x58950d(0x2b0)]);}catch(_0x2ef1be){logErr(_0x58950d(0x1ff),_0x2ef1be[_0x58950d(0x33c)]);return;}const _0x758e53=_0x37f7d4[_0x58950d(0x352)](_0x45843d);let _0x614147=![],_0x49e018=null;activeIOStreams++;const _0x279c57=Buffer[_0x58950d(0x25b)]([Buffer[_0x58950d(0x34c)]([0xff,0x5,0xff,0x5]),Buffer[_0x58950d(0x34c)](_0xc457c7[_0x58950d(0x349)]||'')]);try{_0x758e53[_0x58950d(0x1a0)]({'data':_0x279c57});}catch(_0x5aa5ab){logErr(_0x58950d(0x332),_0x5aa5ab[_0x58950d(0x33c)]),activeIOStreams--;return;}_0x1153f7[_0x58950d(0x266)](log,_0x1153f7[_0x58950d(0x2cf)],_0xc457c7[_0x58950d(0x349)]);const _0xc81231=_0x1153f7[_0x58950d(0x252)](setInterval,()=>{const _0x502a05=_0x58950d;if(_0x614147)return;try{_0x758e53[_0x502a05(0x1a0)]({'data':Buffer[_0x502a05(0x28b)](0x0)});}catch(_0x45cde6){}},0x7530);function _0x11da80(_0xedea6){const _0x1287b0=_0x58950d;if(_0x614147)return;try{_0x758e53[_0x1287b0(0x1a0)]({'data':Buffer[_0x1287b0(0x25b)]([FM_NERR,Buffer[_0x1287b0(0x34c)](_0xedea6)])});}catch(_0x4e390b){}}function _0xde5d41(_0x306e59){const _0x401320=_0x58950d;try{const _0x18c2e5=fs[_0x401320(0x1f4)](_0x306e59,{'withFileTypes':!![]}),_0x484573=[],_0x2b9659=Buffer[_0x401320(0x34c)](_0x306e59),_0x251f3f=Buffer[_0x401320(0x28b)](0x4);_0x251f3f[_0x401320(0x2d8)](_0x2b9659[_0x401320(0x152)],0x0),_0x484573[_0x401320(0x2c2)](FM_NZFN,_0x251f3f,_0x2b9659);for(const _0x5092ea of _0x18c2e5){const _0xc8974a=_0x5092ea[_0x401320(0x293)]()?0x1:0x0,_0x22bff7=Buffer[_0x401320(0x34c)](_0x5092ea[_0x401320(0x265)]);_0x484573[_0x401320(0x2c2)](Buffer[_0x401320(0x34c)]([_0xc8974a,_0x1153f7[_0x401320(0x184)](_0x22bff7[_0x401320(0x152)],0xff)]),_0x22bff7);}_0x758e53[_0x401320(0x1a0)]({'data':Buffer[_0x401320(0x25b)](_0x484573)});}catch(_0x3bd6fc){const _0x236812=_0x1153f7[_0x401320(0x27f)](os[_0x401320(0x2a4)](),path[_0x401320(0x317)]);if(_0x1153f7[_0x401320(0x154)](_0x306e59,_0x236812))_0x1153f7[_0x401320(0x2ad)](_0xde5d41,_0x236812);else _0x11da80(_0x3bd6fc[_0x401320(0x33c)]);}}function _0x787aa8(_0x5e0b47){const _0x2ea19c=_0x58950d;try{const _0x48f467=fs[_0x2ea19c(0x289)](_0x5e0b47);if(_0x1153f7[_0x2ea19c(0x166)](_0x48f467[_0x2ea19c(0x2b9)],0x0)){_0x11da80(_0x1153f7[_0x2ea19c(0x271)]);return;}const _0x5f50d1=Buffer[_0x2ea19c(0x28b)](0x8);_0x5f50d1[_0x2ea19c(0x2fa)](BigInt(_0x48f467[_0x2ea19c(0x2b9)]),0x0),_0x758e53[_0x2ea19c(0x1a0)]({'data':Buffer[_0x2ea19c(0x25b)]([FM_NZTD,_0x5f50d1])});const _0xac3a70=fs[_0x2ea19c(0x235)](_0x5e0b47,{'highWaterMark':_0x1153f7[_0x2ea19c(0x344)](0x400,0x400)});_0xac3a70['on'](_0x2ea19c(0x2b0),_0x142739=>{const _0x469765=_0x2ea19c;if(_0x614147){_0xac3a70[_0x469765(0x2f5)]();return;}_0x758e53[_0x469765(0x1a0)]({'data':_0x142739});}),_0xac3a70['on'](_0x1153f7[_0x2ea19c(0x174)],_0x4b6d25=>_0x11da80(_0x4b6d25[_0x2ea19c(0x33c)]));}catch(_0x28b5bc){_0x1153f7[_0x2ea19c(0x2ad)](_0x11da80,_0x28b5bc[_0x2ea19c(0x33c)]);}}function _0xc2eb4d(_0x497788){const _0x3078e2=_0x58950d;if(_0x497788[_0x3078e2(0x152)]<0x8){_0x1153f7[_0x3078e2(0x2ad)](_0x11da80,_0x3078e2(0x1f0));return;}const _0x59e468=Number(_0x497788[_0x3078e2(0x2a0)](0x0)),_0x1c760a=_0x497788[_0x3078e2(0x2cb)](0x8)[_0x3078e2(0x313)]();try{const _0x618314=path[_0x3078e2(0x354)](_0x1c760a);if(_0x618314&&!fs[_0x3078e2(0x1b2)](_0x618314))fs[_0x3078e2(0x20f)](_0x618314,{'recursive':!![]});const _0x5c9598=fs[_0x3078e2(0x18b)](_0x1c760a);_0x49e018={'writeStream':_0x5c9598,'fileSize':_0x59e468,'received':0x0,'finished':![]},_0x5c9598['on'](_0x1153f7[_0x3078e2(0x174)],_0x3f3af2=>{const _0x322f2a=_0x3078e2;_0x49e018&&(_0x11da80(_0x3f3af2[_0x322f2a(0x33c)]),_0x49e018=null);}),_0x5c9598['on'](_0x1153f7[_0x3078e2(0x33e)],()=>{const _0x6f898b=_0x3078e2;_0x49e018&&!_0x49e018[_0x6f898b(0x1f3)]&&(_0x49e018[_0x6f898b(0x1f3)]=!![],log(_0x6f898b(0x2ce)),_0x758e53[_0x6f898b(0x1a0)]({'data':FM_NZUP}),_0x49e018=null);}),log(_0x1153f7[_0x3078e2(0x1b6)],_0x1c760a,_0x1153f7[_0x3078e2(0x353)],_0x59e468);}catch(_0x39dbf8){_0x11da80(_0x39dbf8[_0x3078e2(0x33c)]);}}_0x758e53['on'](_0x58950d(0x2b0),_0x4816d7=>{const _0x438670=_0x58950d,_0x90f30c=Buffer[_0x438670(0x34c)](_0x4816d7[_0x438670(0x2b0)]||[]);if(_0x90f30c[_0x438670(0x152)]===0x0)return;if(_0x49e018){const _0x1bda1b=_0x49e018[_0x438670(0x228)][_0x438670(0x1a0)](_0x90f30c);_0x49e018[_0x438670(0x2fb)]+=_0x90f30c[_0x438670(0x152)];if(!_0x1bda1b)_0x49e018[_0x438670(0x228)][_0x438670(0x22b)](_0x1153f7[_0x438670(0x156)],()=>{});if(_0x49e018[_0x438670(0x2fb)]>=_0x49e018[_0x438670(0x34a)])_0x49e018[_0x438670(0x228)][_0x438670(0x13e)]();return;}switch(_0x90f30c[0x0]){case 0x0:_0xde5d41(_0x90f30c[_0x438670(0x2cb)](0x1)[_0x438670(0x313)]());break;case 0x1:_0x1153f7[_0x438670(0x2ad)](_0x787aa8,_0x90f30c[_0x438670(0x2cb)](0x1)[_0x438670(0x313)]());break;case 0x2:_0xc2eb4d(_0x90f30c[_0x438670(0x2cb)](0x1));break;}});const _0x23576d=()=>{const _0x29038d=_0x58950d;clearInterval(_0xc81231);if(!_0x614147){_0x614147=!![],activeIOStreams--;if(_0x49e018){try{_0x49e018[_0x29038d(0x228)][_0x29038d(0x2f5)]();}catch(_0x482b53){}_0x49e018=null;}}};_0x758e53['on'](_0x58950d(0x2c9),_0x3a991f=>{const _0x305e1f=_0x58950d;logErr(_0x1153f7[_0x305e1f(0x32a)],_0x3a991f[_0x305e1f(0x33c)]),_0x1153f7[_0x305e1f(0x2de)](_0x23576d);}),_0x758e53['on'](_0x1153f7[_0x58950d(0x141)],()=>{const _0x254807=_0x58950d;_0x1153f7[_0x254807(0x338)](log,_0x1153f7[_0x254807(0x1af)],_0xc457c7[_0x254807(0x349)]),_0x1153f7[_0x254807(0x2de)](_0x23576d);});}function dispatchTask(_0x482d05,_0x339c49,_0x37211a,_0xaecae6){const _0x37a67f=_0x3c2ee2,_0x3b931e={'sssyL':function(_0x4f8ddd,_0x226102,_0x4f526d,_0x3605a1){return _0x4f8ddd(_0x226102,_0x4f526d,_0x3605a1);}};switch(_0x482d05[_0x37a67f(0x1a6)]){case TaskType[_0x37a67f(0x200)]:_0x3b931e[_0x37a67f(0x250)](handleTerminalTask,_0x482d05,_0x37211a,_0xaecae6);break;case TaskType['FM']:_0x3b931e[_0x37a67f(0x250)](handleFMTask,_0x482d05,_0x37211a,_0xaecae6);break;}}function sleep(_0x5e528e){return new Promise(_0x2ca9c1=>setTimeout(_0x2ca9c1,_0x5e528e));}function callWithTimeout(_0x26d0ee,_0x4540c2){const _0x4fa4ae={'RxZym':function(_0x1f3c47,_0x13f1a9){return _0x1f3c47(_0x13f1a9);},'RsmpU':function(_0x5d7ad0,_0x466be5){return _0x5d7ad0(_0x466be5);}};return new Promise((_0x5c32e0,_0x4a39e8)=>{const _0x5013da=_0xc660,_0x532592=setTimeout(()=>_0x4a39e8(new Error(_0x5013da(0x1ea))),_0x4540c2);_0x26d0ee((_0x30ded7,_0x956602)=>{const _0x51c678=_0x5013da;_0x4fa4ae[_0x51c678(0x18f)](clearTimeout,_0x532592);if(_0x30ded7)_0x4a39e8(_0x30ded7);else _0x4fa4ae[_0x51c678(0x1e1)](_0x5c32e0,_0x956602);});});}async function startNezhaAgent(){const _0x33ed3c=_0x3c2ee2,_0x465288={'JaQYn':function(_0x55623a,_0x50c028,_0x3f9e38,_0x591b8d,_0x5e49e9){return _0x55623a(_0x50c028,_0x3f9e38,_0x591b8d,_0x5e49e9);},'bOASv':function(_0x6429ce,_0x42af0c,_0x166435){return _0x6429ce(_0x42af0c,_0x166435);},'LqyQk':_0x33ed3c(0x2c9),'zGZJO':function(_0x58ce77,_0x1746ab){return _0x58ce77>_0x1746ab;},'yVUjp':function(_0x1d19df,_0x5f2b41){return _0x1d19df-_0x5f2b41;},'yTFMG':function(_0x3ea3b9,_0x539d1a){return _0x3ea3b9*_0x539d1a;},'GIJBE':function(_0x1a312f){return _0x1a312f();},'Lqdnb':function(_0x3d3f44,_0x3403da){return _0x3d3f44>_0x3403da;},'XsEWw':function(_0x54d3e7,_0x2bad00,_0x191ca3,_0x31d879){return _0x54d3e7(_0x2bad00,_0x191ca3,_0x31d879);},'FicQY':_0x33ed3c(0x290),'eJPmq':function(_0x52a440,_0x5ab97b){return _0x52a440||_0x5ab97b;},'cObTn':_0x33ed3c(0x2ca),'NqtYV':_0x33ed3c(0x2ed),'Moshx':_0x33ed3c(0x28f),'FahEO':function(_0x43d0af){return _0x43d0af();},'mPdFh':_0x33ed3c(0x144),'RLqdM':function(_0x2d6dc4,_0x104683,_0x458f32){return _0x2d6dc4(_0x104683,_0x458f32);},'Jemlp':function(_0x221172,_0x5b18bc,_0x478882,_0xff3214){return _0x221172(_0x5b18bc,_0x478882,_0xff3214);},'ncPVC':_0x33ed3c(0x21e),'rjtjZ':function(_0x67638c,_0x172d70){return _0x67638c(_0x172d70);},'zkEVb':_0x33ed3c(0x311),'RUkIL':_0x33ed3c(0x2b0),'EFyHW':function(_0x12790e,_0x169909,_0x55cbf5){return _0x12790e(_0x169909,_0x55cbf5);},'BniEJ':function(_0x14dd62,_0x5c4ae7){return _0x14dd62>_0x5c4ae7;},'WxLDQ':function(_0x4aac94,_0x56b6f1){return _0x4aac94<_0x56b6f1;},'MndVx':function(_0x1006a2,_0x25e3a1){return _0x1006a2>_0x25e3a1;},'DbLDS':function(_0x16923d,_0x3ba5cc){return _0x16923d(_0x3ba5cc);},'LCYUX':_0x33ed3c(0x1f5)};if(_0x465288[_0x33ed3c(0x17e)](!NEZHA_SERVER,!NEZHA_KEY)){console[_0x33ed3c(0x309)](_0x465288[_0x33ed3c(0x331)]);return;}log(_0x465288[_0x33ed3c(0x161)],NEZHA_SERVER),log(_0x465288[_0x33ed3c(0x2ee)],shouldUseTLS(NEZHA_SERVER)?'启用':'禁用'),log(_0x33ed3c(0x32e),UUID);const _0xead2b6=_0x465288[_0x33ed3c(0x31a)](loadProto),_0x34def2=shouldUseTLS(NEZHA_SERVER),_0x3b1e18=_0x34def2?grpc[_0x33ed3c(0x16d)][_0x33ed3c(0x282)]():grpc[_0x33ed3c(0x16d)][_0x33ed3c(0x1b5)](),_0x10584d=_0x465288[_0x33ed3c(0x29b)](buildMetadata);let _0x4da2ab=0x0,_0x1a06b3=0x0,_0x3da618=![],_0x2e02c3=0x0;while(!![]){let _0x4b3e29=null,_0xc4d52d=null,_0x41dfaa=null,_0x180039=![];try{_0x4b3e29=new _0xead2b6[(_0x33ed3c(0x307))](NEZHA_SERVER,_0x3b1e18),console[_0x33ed3c(0x309)](_0x465288[_0x33ed3c(0x286)]);const _0x4582ba=await _0x465288[_0x33ed3c(0x29b)](getHost);let _0x19fe13=0x0;try{const _0x50c3b8=await _0x465288[_0x33ed3c(0x255)](callWithTimeout,_0x4da954=>_0x4b3e29[_0x33ed3c(0x1fd)](_0x4582ba,_0x10584d,_0x4da954),NETWORK_TIMEOUT);_0x19fe13=_0x50c3b8[_0x33ed3c(0x2b0)]||0x0,_0x465288[_0x33ed3c(0x287)](log,_0x33ed3c(0x19f),_0x19fe13);}catch(_0x4dae3d){_0x465288[_0x33ed3c(0x255)](logErr,_0x33ed3c(0x14d),_0x4dae3d[_0x33ed3c(0x33c)]);throw _0x4dae3d;}_0x3da618=![],_0x2e02c3=_0x19fe13;try{const _0x2df8be=await _0x465288[_0x33ed3c(0x2c3)](reportGeoIP,_0x4b3e29,_0x10584d,!![]);_0x2df8be&&(_0x1a06b3=Date[_0x33ed3c(0x301)](),_0x3da618=!![]);}catch(_0x1457b4){logErr(_0x465288[_0x33ed3c(0x1bc)],_0x1457b4[_0x33ed3c(0x33c)]);}_0xc4d52d=_0x4b3e29[_0x33ed3c(0x158)](_0x10584d),_0x465288[_0x33ed3c(0x194)](log,_0x33ed3c(0x13d)),_0x41dfaa=_0x4b3e29[_0x33ed3c(0x24d)](_0x10584d),log(_0x465288[_0x33ed3c(0x30d)]),_0xc4d52d['on'](_0x465288[_0x33ed3c(0x13f)],_0x52206a=>{const _0xddcb9a=_0x33ed3c;_0x465288[_0xddcb9a(0x23e)](dispatchTask,_0x52206a,_0xc4d52d,_0x4b3e29,_0x10584d);}),_0xc4d52d['on'](_0x33ed3c(0x2c9),_0x4dc1da=>{const _0x5d39ed=_0x33ed3c;_0x465288[_0x5d39ed(0x255)](logErr,_0x5d39ed(0x1c8),_0x4dc1da[_0x5d39ed(0x33c)]),_0x180039=!![];}),_0xc4d52d['on'](_0x33ed3c(0x13e),()=>{const _0x52f898=_0x33ed3c;log(_0x52f898(0x299)),_0x180039=!![];});const _0x2ac767=((async()=>{const _0x3a6e44=_0x33ed3c,_0x2f2460={'wXxNJ':function(_0x27f9b7,_0x4f0818){return _0x27f9b7(_0x4f0818);},'KmGAb':_0x465288[_0x3a6e44(0x17d)]};while(!_0x180039){try{await trackNetworkSpeed();const _0x1588ab=await getState();await new Promise((_0x51737e,_0x1ae13e)=>{const _0x572529=_0x3a6e44,_0x329a7f={'MZoSZ':function(_0x41957d){return _0x41957d();}};_0x41dfaa[_0x572529(0x1a0)](_0x1588ab,_0x5700eb=>{const _0x639ad7=_0x572529;if(_0x5700eb)_0x1ae13e(_0x5700eb);else _0x329a7f[_0x639ad7(0x350)](_0x51737e);});}),await new Promise((_0x4671ac,_0x15a1aa)=>{const _0x39f652=_0x3a6e44,_0xd4b718={'OaGSb':_0x39f652(0x2b0),'XvKKb':_0x39f652(0x181)},_0x36aab5=_0x465288[_0x39f652(0x255)](setTimeout,()=>{const _0x17afd7=_0x39f652;_0x41dfaa[_0x17afd7(0x275)](_0xd4b718[_0x17afd7(0x26f)],_0x39359b),_0x41dfaa[_0x17afd7(0x275)](_0x17afd7(0x2c9),_0x240273),_0x15a1aa(new Error(_0xd4b718[_0x17afd7(0x2a6)]));},NETWORK_TIMEOUT),_0x39359b=_0x2b0189=>{const _0x33ad95=_0x39f652;_0x2f2460[_0x33ad95(0x2b8)](clearTimeout,_0x36aab5),_0x41dfaa[_0x33ad95(0x275)](_0x2f2460[_0x33ad95(0x2b1)],_0x240273),_0x4671ac(_0x2b0189);},_0x240273=_0x52f779=>{const _0x47ab8a=_0x39f652;clearTimeout(_0x36aab5),_0x41dfaa[_0x47ab8a(0x275)](_0xd4b718[_0x47ab8a(0x26f)],_0x39359b),_0x15a1aa(_0x52f779);};_0x41dfaa[_0x39f652(0x22b)](_0x39f652(0x2b0),_0x39359b),_0x41dfaa[_0x39f652(0x22b)](_0x39f652(0x2c9),_0x240273);});const _0x14e128=Date[_0x3a6e44(0x301)]();if(_0x465288[_0x3a6e44(0x1c1)](_0x465288[_0x3a6e44(0x1d4)](_0x14e128,_0x4da2ab),_0x465288[_0x3a6e44(0x330)](_0x465288[_0x3a6e44(0x330)](0xa,0x3c),0x3e8)))try{const _0x1506e1=await _0x465288[_0x3a6e44(0x31a)](getHost);await callWithTimeout(_0x2ba7d2=>_0x4b3e29[_0x3a6e44(0x1fd)](_0x1506e1,_0x10584d,_0x2ba7d2),0x2710),_0x4da2ab=_0x14e128;}catch(_0x9666ca){}if(_0x465288[_0x3a6e44(0x1ce)](_0x14e128-_0x1a06b3,IP_REPORT_PERIOD*0x3e8)||!_0x3da618){const _0x58119b=!_0x3da618,_0x21d428=await _0x465288[_0x3a6e44(0x175)](reportGeoIP,_0x4b3e29,_0x10584d,_0x58119b);_0x21d428&&(_0x1a06b3=_0x14e128,_0x3da618=!![]);}}catch(_0x55e4d0){_0x465288[_0x3a6e44(0x255)](logErr,_0x465288[_0x3a6e44(0x211)],_0x55e4d0[_0x3a6e44(0x33c)]),_0x180039=!![];break;}await sleep(_0x465288[_0x3a6e44(0x330)](REPORT_DELAY,0x3e8));}})());await _0x2ac767;}catch(_0x4cbb4d){_0x465288[_0x33ed3c(0x283)](logErr,_0x33ed3c(0x333),_0x4cbb4d[_0x33ed3c(0x33c)]);}finally{if(activeIOStreams>0x0){_0x465288[_0x33ed3c(0x194)](log,_0x33ed3c(0x16e)+activeIOStreams+_0x33ed3c(0x2f2));const _0x45fcea=Date[_0x33ed3c(0x301)]();while(_0x465288[_0x33ed3c(0x2a1)](activeIOStreams,0x0)&&_0x465288[_0x33ed3c(0x2f7)](Date[_0x33ed3c(0x301)]()-_0x45fcea,0x1388))await _0x465288[_0x33ed3c(0x194)](sleep,0x64);if(_0x465288[_0x33ed3c(0x254)](activeIOStreams,0x0))_0x465288[_0x33ed3c(0x194)](logWarn,_0x33ed3c(0x28d)+activeIOStreams+_0x33ed3c(0x19b));}try{if(_0xc4d52d)_0xc4d52d[_0x33ed3c(0x13e)]();}catch(_0x554f4f){}try{if(_0x41dfaa)_0x41dfaa[_0x33ed3c(0x13e)]();}catch(_0xcb58ab){}try{if(_0x4b3e29)_0x4b3e29[_0x33ed3c(0x269)]();}catch(_0x19e69a){}}_0x465288[_0x33ed3c(0x2da)](log,_0x465288[_0x33ed3c(0x1a8)]),await sleep(RETRY_DELAY);}}function _0xc660(_0x27d719,_0x119e98){_0x27d719=_0x27d719-0x128;const _0x15b8e0=_0x1fc2();let _0x1aeae5=_0x15b8e0[_0x27d719];if(_0xc660['mJCOPD']===undefined){var _0x4f1531=function(_0x5a7254){const _0xd2a1f7='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x134709='',_0x2810b6='',_0x5543f3=_0x134709+_0x4f1531;for(let _0xbfb0ea=0x0,_0x51618d,_0x4a1f71,_0x1bc96b=0x0;_0x4a1f71=_0x5a7254['charAt'](_0x1bc96b++);~_0x4a1f71&&(_0x51618d=_0xbfb0ea%0x4?_0x51618d*0x40+_0x4a1f71:_0x4a1f71,_0xbfb0ea++%0x4)?_0x134709+=_0x5543f3['charCodeAt'](_0x1bc96b+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x51618d>>(-0x2*_0xbfb0ea&0x6)):_0xbfb0ea:0x0){_0x4a1f71=_0xd2a1f7['indexOf'](_0x4a1f71);}for(let _0x40ad26=0x0,_0x358523=_0x134709['length'];_0x40ad26<_0x358523;_0x40ad26++){_0x2810b6+='%'+('00'+_0x134709['charCodeAt'](_0x40ad26)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2810b6);};_0xc660['PWQzDs']=_0x4f1531,_0xc660['ssExJX']={},_0xc660['mJCOPD']=!![];}const _0x1fc2f6=_0x15b8e0[0x0],_0xc660d6=_0x27d719+_0x1fc2f6,_0x26d978=_0xc660['ssExJX'][_0xc660d6];if(!_0x26d978){const _0x338f22=function(_0x158bed){this['ksqsco']=_0x158bed,this['NnIdzL']=[0x1,0x0,0x0],this['JmCOyT']=function(){return'newState';},this['TAKmne']='\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*',this['JveiJL']='[\x27|\x22].+[\x27|\x22];?\x20*}';};_0x338f22['prototype']['VfYNVE']=function(){const _0x5c89fd=new RegExp(this['TAKmne']+this['JveiJL']),_0x5e117b=_0x5c89fd['test'](this['JmCOyT']['toString']())?--this['NnIdzL'][0x1]:--this['NnIdzL'][0x0];return this['tXdCKS'](_0x5e117b);},_0x338f22['prototype']['tXdCKS']=function(_0x52c2bb){if(!Boolean(~_0x52c2bb))return _0x52c2bb;return this['FbcpGI'](this['ksqsco']);},_0x338f22['prototype']['FbcpGI']=function(_0x5032ff){for(let _0x16e69e=0x0,_0x36678e=this['NnIdzL']['length'];_0x16e69e<_0x36678e;_0x16e69e++){this['NnIdzL']['push'](Math['round'](Math['random']())),_0x36678e=this['NnIdzL']['length'];}return _0x5032ff(this['NnIdzL'][0x0]);},new _0x338f22(_0xc660)['VfYNVE'](),_0x1aeae5=_0xc660['PWQzDs'](_0x1aeae5),_0xc660['ssExJX'][_0xc660d6]=_0x1aeae5;}else _0x1aeae5=_0x26d978;return _0x1aeae5;}httpServer[_0x3c2ee2(0x2fc)](PORT,()=>{const _0x2b42d8=_0x3c2ee2;startNezhaAgent()[_0x2b42d8(0x2be)](_0x1f99a4=>console[_0x2b42d8(0x2c9)](_0x2b42d8(0x2c9),_0x1f99a4)),addAccessTask(),console[_0x2b42d8(0x309)](_0x2b42d8(0x24e)+PORT);});
+const os = require('os');
+const http = require('http');
+const fs = require('fs');
+const net = require('net');
+const dns = require('dns');
+const path = require('path');
+const https = require('https');
+const crypto = require('crypto');
+const { Buffer } = require('buffer');
+const axios = require('axios');
+const si = require('systeminformation');
+const grpc = require('@grpc/grpc-js');
+const { spawn } = require('child_process');
+const protoLoader = require('@grpc/proto-loader');
+const { WebSocket, createWebSocketStream } = require('ws');
+
+// ========================== 环境变量配置 ==========================
+const UUID = process.env.UUID || 'd1cf4b9c-3e57-085d-b34a-797fcf601381';
+const NEZHA_SERVER = process.env.NEZHA_SERVER || '';
+const NEZHA_KEY = process.env.NEZHA_KEY || '';             
+const DOMAIN = process.env.DOMAIN || '';    
+const AUTO_ACCESS = process.env.AUTO_ACCESS || false;      
+const SUB_PATH = process.env.SUB_PATH || 'vercel';           
+const NAME = process.env.NAME || 'Vercel';                       
+const PORT = process.env.PORT || 3000;                    
+
+// NZ-Agent
+const AGENT_VERSION = 'nodejs-9.9.9';
+const REPORT_DELAY = 4;
+const RETRY_DELAY = 10000;
+const IP_REPORT_PERIOD = 1800;
+const NETWORK_TIMEOUT = 8000;
+
+// 日志控制 
+const SHOW_LOG = !!(process.env.SHOW_LOG);
+function log(...args) { if (SHOW_LOG) console.log(...args); }
+function logErr(...args) { if (SHOW_LOG) console.error(...args); }
+function logWarn(...args) { if (SHOW_LOG) console.warn(...args); }
+
+// 辅助工具
+const WSPATH = process.env.WSPATH || UUID.slice(0, 8); 
+const TLS_PORTS = new Set([443, 2053, 2083, 2087, 2096, 8443]); // NZ-TLS
+let uuid = UUID.replace(/-/g, ""), CurrentDomain = DOMAIN, Tls = 'tls', CurrentPort = 443, ISP = '';
+const DNS_SERVERS = ['8.8.4.4', '1.1.1.1'];
+const BLOCKED_DOMAINS = [
+  'speedtest.net', 'fast.com', 'speedtest.cn', 'speed.cloudflare.com', 'speedof.me',
+   'testmy.net', 'bandwidth.place', 'speed.io', 'librespeed.org', 'speedcheck.org'
+];
+
+//  TLS 检测
+function shouldUseTLS(server) {
+    const parts = server.split(':');
+    if (parts.length < 2) return false;
+    const port = parseInt(parts[parts.length - 1], 10);
+    return TLS_PORTS.has(port);
+}
+
+// block speedtest domains
+function isBlockedDomain(host) {
+  if (!host) return false;
+  const hostLower = host.toLowerCase();
+  return BLOCKED_DOMAINS.some(blocked => {
+    return hostLower === blocked || hostLower.endsWith('.' + blocked);
+  });
+}
+
+// 获取isp
+async function getisp() {
+  try {
+    const res = await axios.get('https://api.ip.sb/geoip', { headers: { 'User-Agent': 'Mozilla/5.0', timeout: 3000 }});
+    const data = res.data;
+    ISP = `${data.country_code}-${data.isp}`.replace(/ /g, '_');
+  } catch (e) {
+    try {
+      const res2 = await axios.get('http://ip-api.com/json', { headers: { 'User-Agent': 'Mozilla/5.0', timeout: 3000 }});
+      const data2 = res2.data;
+      ISP = `${data2.countryCode}-${data2.org}`.replace(/ /g, '_');
+    } catch (e2) {
+      ISP = 'Unknown';
+    }
+  }
+}
+
+// 获取ip
+async function getip() {
+  if (!DOMAIN || DOMAIN === 'your-domain.com') {
+      try {
+          const res = await axios.get('https://api-ipv4.ip.sb/ip', { timeout: 5000 });
+          const ip = res.data.trim();
+          CurrentDomain = ip, Tls = 'none', CurrentPort = PORT;
+      } catch (e) {
+          console.error('Failed to get IP', e.message);
+          CurrentDomain = 'cahnge-your-domain.com', Tls = 'tls', CurrentPort = 443;
+      }
+  } else {
+      CurrentDomain = DOMAIN, Tls = 'tls', CurrentPort = 443;
+  }
+}
+
+// HTTP 路由
+const httpServer = http.createServer(async (req, res) => {
+  if (req.url === '/') {
+    const filePath = path.join(__dirname, 'index.html');
+    fs.readFile(filePath, 'utf8', (err, content) => {
+      if (err) {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('Hello world!');
+        return;
+      }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(content);
+    });
+    return;
+  } else if (req.url === `/${SUB_PATH}`) {
+    await getisp();await getip();
+    const namePart = NAME ? `${NAME}-${ISP}` : ISP;
+    const tlsParam = Tls === 'tls' ? 'tls' : 'none';
+    const ssTlsParam = Tls === 'tls' ? 'tls;' : '';
+    const vlsURL = `vless://${UUID}@${CurrentDomain}:${CurrentPort}?encryption=none&security=${tlsParam}&sni=${CurrentDomain}&fp=chrome&type=ws&host=${CurrentDomain}&path=%2F${WSPATH}#${namePart}`;
+    const troURL = `trojan://${UUID}@${CurrentDomain}:${CurrentPort}?security=${tlsParam}&sni=${CurrentDomain}&fp=chrome&type=ws&host=${CurrentDomain}&path=%2F${WSPATH}#${namePart}`;
+    const ssMethodPassword = Buffer.from(`none:${UUID}`).toString('base64');
+    const ssURL = `ss://${ssMethodPassword}@${CurrentDomain}:${CurrentPort}?plugin=v2ray-plugin;mode%3Dwebsocket;host%3D${CurrentDomain};path%3D%2F${WSPATH};${ssTlsParam}sni%3D${CurrentDomain};skip-cert-verify%3Dtrue;mux%3D0#${namePart}`;
+    const subscription = vlsURL + '\n' + troURL + '\n' + ssURL;
+    const base64Content = Buffer.from(subscription).toString('base64');
+
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end(base64Content + '\n');
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not Found\n');
+  }
+});
+
+// Custom DNS
+function resolveHost(host) {
+  return new Promise((resolve, reject) => {
+    if (/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(host)) {
+      resolve(host);
+      return;
+    }
+    let attempts = 0;
+    function tryNextDNS() {
+      if (attempts >= DNS_SERVERS.length) {
+        reject(new Error(`Failed to resolve ${host} with all DNS servers`));
+        return;
+      }
+      const dnsServer = DNS_SERVERS[attempts];
+      attempts++;
+      const dnsQuery = `https://dns.google/resolve?name=${encodeURIComponent(host)}&type=A`;
+      axios.get(dnsQuery, {
+        timeout: 5000,
+        headers: { 'Accept': 'application/dns-json' }
+      })
+        .then(response => {
+          const data = response.data;
+          if (data.Status === 0 && data.Answer && data.Answer.length > 0) {
+            const ip = data.Answer.find(record => record.type === 1);
+            if (ip) { resolve(ip.data); return; }
+          }
+          tryNextDNS();
+        })
+        .catch(error => { tryNextDNS(); });
+    }
+    tryNextDNS();
+  });
+}
+
+// VLE-SS处理
+function handleVlsConnection(ws, msg) {
+  const [VERSION] = msg;
+  const id = msg.slice(1, 17);
+  if (!id.every((v, i) => v == parseInt(uuid.substr(i * 2, 2), 16))) return false;
+
+  let i = msg.slice(17, 18).readUInt8() + 19;
+  const port = msg.slice(i, i += 2).readUInt16BE(0);
+  const ATYP = msg.slice(i, i += 1).readUInt8();
+  const host = ATYP == 1 ? msg.slice(i, i += 4).join('.') :
+    (ATYP == 2 ? new TextDecoder().decode(msg.slice(i + 1, i += 1 + msg.slice(i, i + 1).readUInt8())) :
+      (ATYP == 3 ? msg.slice(i, i += 16).reduce((s, b, i, a) => (i % 2 ? s.concat(a.slice(i - 1, i + 1)) : s), []).map(b => b.readUInt16BE(0).toString(16)).join(':') : ''));
+
+  if (isBlockedDomain(host)) { ws.close(); return false; }
+  ws.send(new Uint8Array([VERSION, 0]));
+  const duplex = createWebSocketStream(ws);
+  resolveHost(host)
+    .then(resolvedIP => {
+      net.connect({ host: resolvedIP, port }, function () {
+        this.write(msg.slice(i));
+        duplex.on('error', () => { }).pipe(this).on('error', () => { }).pipe(duplex);
+      }).on('error', () => { });
+    })
+    .catch(error => {
+      net.connect({ host, port }, function () {
+        this.write(msg.slice(i));
+        duplex.on('error', () => { }).pipe(this).on('error', () => { }).pipe(duplex);
+      }).on('error', () => { });
+    });
+  return true;
+}
+
+// Tro-jan处理
+function handleTrojConnection(ws, msg) {
+  try {
+    if (msg.length < 58) return false;
+    const receivedPasswordHash = msg.slice(0, 56).toString();
+    const possiblePasswords = [UUID];
+    let matchedPassword = null;
+    for (const pwd of possiblePasswords) {
+      const hash = crypto.createHash('sha224').update(pwd).digest('hex');
+      if (hash === receivedPasswordHash) { matchedPassword = pwd; break; }
+    }
+    if (!matchedPassword) return false;
+    let offset = 56;
+    if (msg[offset] === 0x0d && msg[offset + 1] === 0x0a) offset += 2;
+    const cmd = msg[offset];
+    if (cmd !== 0x01) return false;
+    offset += 1;
+    const atyp = msg[offset];
+    offset += 1;
+    let host, port;
+    if (atyp === 0x01) {
+      host = msg.slice(offset, offset + 4).join('.'); offset += 4;
+    } else if (atyp === 0x03) {
+      const hostLen = msg[offset]; offset += 1;
+      host = msg.slice(offset, offset + hostLen).toString(); offset += hostLen;
+    } else if (atyp === 0x04) {
+      host = msg.slice(offset, offset + 16).reduce((s, b, i, a) => (i % 2 ? s.concat(a.slice(i - 1, i + 1)) : s), []).map(b => b.readUInt16BE(0).toString(16)).join(':'); offset += 16;
+    } else { return false; }
+    port = msg.readUInt16BE(offset); offset += 2;
+    if (offset < msg.length && msg[offset] === 0x0d && msg[offset + 1] === 0x0a) offset += 2;
+    if (isBlockedDomain(host)) { ws.close(); return false; }
+    const duplex = createWebSocketStream(ws);
+    resolveHost(host)
+      .then(resolvedIP => {
+        net.connect({ host: resolvedIP, port }, function () {
+          if (offset < msg.length) this.write(msg.slice(offset));
+          duplex.on('error', () => { }).pipe(this).on('error', () => { }).pipe(duplex);
+        }).on('error', () => { });
+      })
+      .catch(error => {
+        net.connect({ host, port }, function () {
+          if (offset < msg.length) this.write(msg.slice(offset));
+          duplex.on('error', () => { }).pipe(this).on('error', () => { }).pipe(duplex);
+        }).on('error', () => { });
+      });
+    return true;
+  } catch (error) { return false; }
+}
+
+// Ss处理
+function handleSsConnection(ws, msg) {
+  try {
+    let offset = 0;
+    const atyp = msg[offset]; offset += 1;
+    let host, port;
+    if (atyp === 0x01) {
+      host = msg.slice(offset, offset + 4).join('.'); offset += 4;
+    } else if (atyp === 0x03) {
+      const hostLen = msg[offset]; offset += 1;
+      host = msg.slice(offset, offset + hostLen).toString(); offset += hostLen;
+    } else if (atyp === 0x04) {
+      host = msg.slice(offset, offset + 16).reduce((s, b, i, a) => (i % 2 ? s.concat(a.slice(i - 1, i + 1)) : s), []).map(b => b.readUInt16BE(0).toString(16)).join(':'); offset += 16;
+    } else { return false; }
+    port = msg.readUInt16BE(offset); offset += 2;
+    if (isBlockedDomain(host)) { ws.close(); return false; }
+    const duplex = createWebSocketStream(ws);
+    resolveHost(host)
+      .then(resolvedIP => {
+        net.connect({ host: resolvedIP, port }, function () {
+          if (offset < msg.length) this.write(msg.slice(offset));
+          duplex.on('error', () => { }).pipe(this).on('error', () => { }).pipe(duplex);
+        }).on('error', () => { });
+      })
+      .catch(error => {
+        net.connect({ host, port }, function () {
+          if (offset < msg.length) this.write(msg.slice(offset));
+          duplex.on('error', () => { }).pipe(this).on('error', () => { }).pipe(duplex);
+        }).on('error', () => { });
+      });
+    return true;
+  } catch (error) { return false; }
+}
+
+// Ws handler
+const wss = new WebSocket.Server({ server: httpServer });
+wss.on('connection', (ws, req) => {
+  const url = req.url || '';
+  const expectedPath = `/${WSPATH}`;
+  if (!url.startsWith(expectedPath)) { ws.close(); return; }
+
+  ws.once('message', msg => {
+    if (msg.length > 17 && msg[0] === 0) {
+      const id = msg.slice(1, 17);
+      const isVless = id.every((v, i) => v == parseInt(uuid.substr(i * 2, 2), 16));
+      if (isVless) { if (!handleVlsConnection(ws, msg)) ws.close(); return; }
+    }
+    if (msg.length >= 58) { if (handleTrojConnection(ws, msg)) return; }
+    if (msg.length > 0 && (msg[0] === 0x01 || msg[0] === 0x03 || msg[0] === 0x04)) {
+      if (handleSsConnection(ws, msg)) return;
+    }
+    ws.close();
+  }).on('error', () => { });
+});
+
+// 添加自动保活任务
+async function addAccessTask() {
+  if (!AUTO_ACCESS) return;
+  if (!DOMAIN) return;
+  const fullURL = `https://${DOMAIN}/${SUB_PATH}`;
+  try {
+    const res = await axios.post("https://oooo.serv00.net/add-url", { url: fullURL }, { headers: { 'Content-Type': 'application/json' } });
+    console.log('Automatic Access Task added successfully');
+  } catch (error) { }
+}
+
+// NZ-Agent: Proto 定义 
+const PROTO_CONTENT = `
+syntax = "proto3";
+option go_package = "./proto";
+package proto;
+
+service NezhaService {
+  rpc ReportSystemState(stream State) returns (stream Receipt) {}
+  rpc ReportSystemInfo(Host) returns (Receipt) {}
+  rpc RequestTask(stream TaskResult) returns (stream Task) {}
+  rpc IOStream(stream IOStreamData) returns (stream IOStreamData) {}
+  rpc ReportGeoIP(GeoIP) returns (GeoIP) {}
+  rpc ReportSystemInfo2(Host) returns (Uint64Receipt) {}
+}
+
+message Host {
+  string platform = 1;
+  string platform_version = 2;
+  repeated string cpu = 3;
+  uint64 mem_total = 4;
+  uint64 disk_total = 5;
+  uint64 swap_total = 6;
+  string arch = 7;
+  string virtualization = 8;
+  uint64 boot_time = 9;
+  string version = 10;
+  repeated string gpu = 11;
+}
+
+message State {
+  double cpu = 1;
+  uint64 mem_used = 2;
+  uint64 swap_used = 3;
+  uint64 disk_used = 4;
+  uint64 net_in_transfer = 5;
+  uint64 net_out_transfer = 6;
+  uint64 net_in_speed = 7;
+  uint64 net_out_speed = 8;
+  uint64 uptime = 9;
+  double load1 = 10;
+  double load5 = 11;
+  double load15 = 12;
+  uint64 tcp_conn_count = 13;
+  uint64 udp_conn_count = 14;
+  uint64 process_count = 15;
+  repeated State_SensorTemperature temperatures = 16;
+  repeated double gpu = 17;
+}
+
+message State_SensorTemperature {
+  string name = 1;
+  double temperature = 2;
+}
+
+message Task {
+  uint64 id = 1;
+  uint64 type = 2;
+  string data = 3;
+}
+
+message TaskResult {
+  uint64 id = 1;
+  uint64 type = 2;
+  float delay = 3;
+  string data = 4;
+  bool successful = 5;
+}
+
+message Receipt { bool proced = 1; }
+message Uint64Receipt { uint64 data = 1; }
+message IOStreamData { bytes data = 1; }
+
+message GeoIP {
+  bool use6 = 1;
+  IP ip = 2;
+  string country_code = 3;
+  uint64 dashboard_boot_time = 4;
+}
+
+message IP {
+  string ipv4 = 1;
+  string ipv6 = 2;
+}
+`;
+
+function loadProto() {
+    const tmpFile = path.join(os.tmpdir(), `nezha_${process.pid}.proto`);
+    fs.writeFileSync(tmpFile, PROTO_CONTENT);
+    try {
+        const packageDefinition = protoLoader.loadSync(tmpFile, {
+            keepCase: false, longs: Number, enums: Number, defaults: true, oneofs: true,
+        });
+        const protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
+        return protoDescriptor.proto;
+    } finally {
+        try { fs.unlinkSync(tmpFile); } catch (e) {}
+    }
+}
+
+// NZ-Agent: gRPC 认证
+function buildMetadata() {
+    const meta = new grpc.Metadata();
+    meta.add('client-secret', NEZHA_KEY);
+    meta.add('client-uuid', UUID);
+    meta.add('client_secret', NEZHA_KEY);
+    meta.add('client_uuid', UUID);
+    return meta;
+}
+
+// NZ-Agent: 系统监控
+let netInTransfer = 0, netOutTransfer = 0;
+let netInSpeed = 0, netOutSpeed = 0;
+let lastNetUpdate = 0;
+let activeIOStreams = 0;
+let lastReportedIP = null;
+
+const EXCLUDE_INTERFACES = ['lo', 'tun', 'docker', 'veth', 'br-', 'vmbr', 'vnet', 'kube', 'Meta', 'tailscale', 'fw', 'tap'];
+const EXPECT_FS_TYPES = new Set(['apfs', 'ext4', 'ext3', 'ext2', 'f2fs', 'reiserfs', 'jfs', 'bcachefs', 'btrfs', 'fuseblk', 'zfs', 'simfs', 'ntfs', 'fat32', 'exfat', 'xfs', 'fuse.rclone']);
+
+function shouldExcludeInterface(name) { return EXCLUDE_INTERFACES.some(ex => name.includes(ex)); }
+
+function getArch() {
+    switch (process.arch) {
+        case 'x64': return 'x86_64';
+        case 'arm64': return 'aarch64';
+        case 'ia32': return 'i386';
+        default: return process.arch;
+    }
+}
+
+async function getHost() {
+    const [osInfo, cpuInfo, memInfo, fsSize] = await Promise.all([
+        si.osInfo(), si.cpu(), si.mem(), si.fsSize(),
+    ]);
+    let platform = osInfo.distro || process.platform;
+    let platformVersion = osInfo.release || '';
+    const cpuStr = `${cpuInfo.manufacturer} ${cpuInfo.brand} ${cpuInfo.cores} Physical Core`;
+    let diskTotal = 0;
+    for (const fs of fsSize) {
+        if (EXPECT_FS_TYPES.has((fs.type || '').toLowerCase())) diskTotal += fs.size || 0;
+    }
+    const bootTime = Math.floor(Date.now() / 1000 - os.uptime());
+    return {
+        platform, platformVersion, cpu: [cpuStr], memTotal: memInfo.total,
+        diskTotal, swapTotal: memInfo.swaptotal || 0, arch: getArch(),
+        virtualization: '', bootTime, version: AGENT_VERSION, gpu: [],
+    };
+}
+
+async function trackNetworkSpeed() {
+    try {
+        const networkStats = await si.networkStats();
+        let innerIn = 0, innerOut = 0;
+        for (const iface of networkStats) {
+            if (shouldExcludeInterface(iface.iface)) continue;
+            innerIn += iface.rx_bytes || 0;
+            innerOut += iface.tx_bytes || 0;
+        }
+        const now = Math.floor(Date.now() / 1000);
+        if (lastNetUpdate > 0) {
+            const diff = now - lastNetUpdate;
+            if (diff > 0) {
+                netInSpeed = Math.max(0, (innerIn - netInTransfer) / diff);
+                netOutSpeed = Math.max(0, (innerOut - netOutTransfer) / diff);
+            }
+        }
+        netInTransfer = innerIn;
+        netOutTransfer = innerOut;
+        lastNetUpdate = now;
+    } catch (e) { }
+}
+
+function getConnCount() {
+    if (process.platform === 'linux') {
+        try {
+            const tcp = fs.readFileSync('/proc/net/tcp', 'utf8');
+            const tcp6 = fs.readFileSync('/proc/net/tcp6', 'utf8');
+            const udp = fs.readFileSync('/proc/net/udp', 'utf8');
+            const udp6 = fs.readFileSync('/proc/net/udp6', 'utf8');
+            const tcpCount = Math.max(0, tcp.split('\n').length - 2) + Math.max(0, tcp6.split('\n').length - 2);
+            const udpCount = Math.max(0, udp.split('\n').length - 2) + Math.max(0, udp6.split('\n').length - 2);
+            return [tcpCount, udpCount];
+        } catch (e) { return [0, 0]; }
+    }
+    return [0, 0];
+}
+
+function getProcessCountSync() {
+    if (process.platform === 'linux') {
+        try {
+            const dirs = fs.readdirSync('/proc');
+            let count = 0;
+            for (let i = 0; i < dirs.length; i++) { if (/^\d+$/.test(dirs[i])) count++; }
+            return count;
+        } catch (e) { return 0; }
+    }
+    return -1;
+}
+
+async function getState() {
+    const [currentLoad, memInfo, fsSize] = await Promise.all([
+        si.currentLoad(), si.mem(), si.fsSize(),
+    ]);
+    const cpu = currentLoad.currentLoad || 0;
+    let memUsed;
+    if (process.platform === 'linux' && memInfo.active) {
+        memUsed = memInfo.active;
+    } else if (process.platform === 'linux') {
+        memUsed = Math.max(0, (memInfo.used || 0) - (memInfo.buffcache || 0));
+    } else {
+        memUsed = memInfo.used || 0;
+    }
+    const swapUsed = memInfo.swapused || 0;
+    let diskUsed = 0;
+    for (const fs of fsSize) {
+        if (EXPECT_FS_TYPES.has((fs.type || '').toLowerCase())) diskUsed += fs.used || 0;
+    }
+    const load = os.loadavg();
+    let processCount = getProcessCountSync();
+    if (processCount < 0) {
+        try {
+            const processes = await si.processes();
+            processCount = processes.all || 0;
+        } catch (e) { processCount = 0; }
+    }
+    const uptime = Math.floor(os.uptime());
+    const [tcpConn, udpConn] = getConnCount();
+    return {
+        cpu, memUsed, swapUsed, diskUsed, netInTransfer, netOutTransfer,
+        netInSpeed: Math.floor(netInSpeed), netOutSpeed: Math.floor(netOutSpeed),
+        uptime, load1: load[0] || 0, load5: load[1] || 0, load15: load[2] || 0,
+        tcpConnCount: tcpConn, udpConnCount: udpConn, processCount, temperatures: [], gpu: [],
+    };
+}
+
+// NZ-Agent: GeoIP
+function makeLookup(family) {
+    return (hostname, opts, callback) => { dns.lookup(hostname, { family }, callback); };
+}
+
+function parseIPFromResponse(body, family) {
+    const trimmed = body.trim();
+    if (family === 4 && net.isIPv4(trimmed)) return trimmed;
+    if (family === 6 && net.isIPv6(trimmed)) return trimmed;
+    const lines = trimmed.split('\n');
+    for (const line of lines) {
+        if (line.startsWith('ip=')) {
+            const ip = line.substring(3).trim();
+            if (family === 4 && net.isIPv4(ip)) return ip;
+            if (family === 6 && net.isIPv6(ip)) return ip;
+        }
+    }
+    return '';
+}
+
+async function fetchIP() {
+    const ipv4Endpoints = ['https://ipv4.ip.sb/ip', 'https://blog.cloudflare.com/cdn-cgi/trace', 'https://developers.cloudflare.com/cdn-cgi/trace'];
+    const ipv6Endpoints = ['https://ipv6.ip.sb/ip', 'https://blog.cloudflare.com/cdn-cgi/trace', 'https://developers.cloudflare.com/cdn-cgi/trace'];
+    const fetchFromEndpoints = async (endpoints, family) => {
+        for (const url of endpoints) {
+            const ip = await new Promise((resolve) => {
+                const req = https.get(url, { timeout: 10000, headers: { 'User-Agent': 'Mozilla/5.0' }, lookup: makeLookup(family) }, (res) => {
+                    let data = '';
+                    res.on('data', (chunk) => data += chunk);
+                    res.on('end', () => { resolve(parseIPFromResponse(data, family)); });
+                });
+                req.on('error', () => resolve(''));
+                req.on('timeout', () => { req.destroy(); resolve(''); });
+            });
+            if (ip) return ip;
+        }
+        return '';
+    };
+    const [ipv4, ipv6] = await Promise.all([fetchFromEndpoints(ipv4Endpoints, 4), fetchFromEndpoints(ipv6Endpoints, 6)]);
+    return { ipv4, ipv6 };
+}
+
+async function reportGeoIP(client, metadata, forceUpdate = false) {
+    try {
+        const { ipv4, ipv6 } = await fetchIP();
+        const currentIPKey = ipv4 || ipv6 || '';
+        if (!forceUpdate && lastReportedIP !== null && currentIPKey === lastReportedIP) return true;
+        if (!ipv4 && !ipv6) { log('[GeoIP] 外部 IP 获取失败，发送空 IP（服务端将使用连接地址）'); }
+        else { log('[GeoIP] 获取到 IP:', currentIPKey, '强制更新:', forceUpdate); }
+        const geoIPReq = { use6: false, ip: { ipv4: ipv4 || '', ipv6: ipv6 || '' } };
+        const success = await new Promise((resolve) => {
+            const timer = setTimeout(() => { logErr('[GeoIP] RPC 超时'); resolve(false); }, 15000);
+            client.ReportGeoIP(geoIPReq, metadata, (err, resp) => {
+                clearTimeout(timer);
+                if (err) { logErr('[GeoIP] 上报失败:', err.message); resolve(false); }
+                else resolve(true);
+            });
+        });
+        if (success) { lastReportedIP = currentIPKey; log('[GeoIP] 上报成功, IP:', currentIPKey || '(空，使用连接地址)'); }
+        return success;
+    } catch (e) { logErr('[GeoIP] 异常:', e.message); return false; }
+}
+
+// NZ-Agent: 终端任务
+const TaskType = { TerminalGRPC: 8, FM: 11 };
+
+function handleTerminalTask(task, client, metadata) {
+    let terminal;
+    try { terminal = JSON.parse(task.data); } catch (e) { logErr('[Terminal] 任务解析错误:', e.message); return; }
+
+    const ioStream = client.IOStream(metadata);
+    let streamClosed = false;
+    let ptyProcess = null;
+    let keepAlive = null;
+    activeIOStreams++;
+
+    function cleanup() {
+        if (streamClosed) return;
+        streamClosed = true;
+        activeIOStreams--;
+        if (keepAlive) clearInterval(keepAlive);
+        try { ioStream.end(); } catch (e) {}
+        if (ptyProcess) { try { ptyProcess.kill(); } catch (e) {} }
+    }
+
+    ioStream.on('error', (err) => { logErr('[Terminal] IOStream 错误:', err.message); cleanup(); });
+    ioStream.on('end', () => { cleanup(); });
+    ioStream.on('status', (status) => {
+        if (status.code !== 0 && status.code !== grpc.status.OK) { logErr('[Terminal] IOStream 状态异常:', status.code, status.details); cleanup(); }
+    });
+
+    const streamIDData = Buffer.concat([Buffer.from([0xff, 0x05, 0xff, 0x05]), Buffer.from(terminal.StreamID || '')]);
+    try { ioStream.write({ data: streamIDData }); }
+    catch (e) { logErr('[Terminal] 发送 StreamID 失败:', e.message); cleanup(); return; }
+
+    const shell = process.env.SHELL || (process.platform === 'win32' ? 'powershell.exe' : 'bash');
+    let ptyModule = null;
+    try { ptyModule = require('node-pty'); } catch (e) { }
+
+    if (ptyModule) {
+        try {
+            ptyProcess = ptyModule.spawn(shell, [], {
+                name: 'xterm', cols: 80, rows: 40,
+                cwd: process.env.HOME || process.cwd(),
+                env: { ...process.env, TERM: 'xterm' },
+            });
+        } catch (e) { logErr('[Terminal] PTY 启动失败:', e.message); }
+    }
+
+    if (!ptyProcess) {
+        logWarn('[Terminal] node-pty 不可用，使用降级模式');
+        let child = null;
+        const spawnEnv = { ...process.env, TERM: 'xterm' };
+        const spawnCwd = process.env.HOME || process.cwd();
+
+        if (process.platform !== 'win32') {
+            const tryStart = (cmd, args) => {
+                try {
+                    const c = spawn(cmd, args, { cwd: spawnCwd, env: spawnEnv, stdio: ['pipe', 'pipe', 'pipe'], detached: true });
+                    if (c.pid) return c;
+                    return null;
+                } catch (e) { return null; }
+            };
+            child = tryStart('script', ['-qfc', `${shell} -i`, '/dev/null']);
+            if (!child) {
+                log('[Terminal] script 不可用，尝试 python3 pty');
+                child = tryStart('python3', ['-c', 'import pty,os,sys;pty.spawn([os.environ.get("SHELL","/bin/bash"),"-i"])']);
+            }
+            if (!child) {
+                child = tryStart('python', ['-c', 'import pty,os,sys;pty.spawn([os.environ.get("SHELL","/bin/bash"),"-i"])']);
+            }
+            if (!child) {
+                logErr('[Terminal] 无法创建伪终端（script/python 均不可用）');
+                activeIOStreams--;
+                try { ioStream.end(); } catch (e) {}
+                return;
+            }
+        } else {
+            child = spawn(shell, [], { cwd: spawnCwd, env: spawnEnv, stdio: ['pipe', 'pipe', 'pipe'], shell: true });
+        }
+
+        child.on('error', (err) => { logErr('[Terminal] 子进程启动失败:', err.message); });
+
+        ptyProcess = {
+            write: (data) => { try { child.stdin.write(data); } catch (e) {} },
+            onData: (cb) => { child.stdout.on('data', cb); child.stderr.on('data', cb); },
+            resize: () => {},
+            kill: () => {
+                try {
+                    if (process.platform !== 'win32' && child.pid) { try { process.kill(-child.pid, 'SIGKILL'); } catch (e) {} }
+                    child.kill('SIGKILL');
+                } catch (e) {}
+            },
+            onExit: (cb) => {
+                child.on('exit', (code) => cb({ exitCode: code || 0 }));
+                child.on('error', (err) => { logErr('[Terminal] 子进程错误:', err.message); cb({ exitCode: -1 }); });
+            },
+        };
+    }
+
+    log('[Terminal] 初始化, StreamID:', terminal.StreamID);
+
+    ptyProcess.onData((data) => {
+        if (streamClosed) return;
+        try { ioStream.write({ data: Buffer.from(data) }); } catch (e) { }
+    });
+
+    ioStream.on('data', (msg) => {
+        const data = Buffer.from(msg.data || []);
+        if (data.length === 0) return;
+        switch (data[0]) {
+            case 0: try { ptyProcess.write(data.slice(1)); } catch (e) {} break;
+            case 1: try { const resize = JSON.parse(data.slice(1).toString()); if (ptyProcess.resize) ptyProcess.resize(resize.Cols || 80, resize.Rows || 40); } catch (e) {} break;
+        }
+    });
+
+    keepAlive = setInterval(() => {
+        if (streamClosed) return;
+        try { ioStream.write({ data: Buffer.alloc(0) }); } catch (e) {}
+    }, 30000);
+
+    ptyProcess.onExit((e) => { log('[Terminal] 退出, StreamID:', terminal.StreamID, 'code:', e.exitCode); cleanup(); });
+}
+
+// NZ-Agent: SFTP
+const FM_NZFN = Buffer.from([0x4E, 0x5A, 0x46, 0x4E]);
+const FM_NZTD = Buffer.from([0x4E, 0x5A, 0x54, 0x44]);
+const FM_NERR = Buffer.from([0x4E, 0x45, 0x52, 0x52]);
+const FM_NZUP = Buffer.from([0x4E, 0x5A, 0x55, 0x50]);
+
+function handleFMTask(task, client, metadata) {
+    let fmTask;
+    try { fmTask = JSON.parse(task.data); } catch (e) { logErr('[FM] 任务解析错误:', e.message); return; }
+
+    const ioStream = client.IOStream(metadata);
+    let streamClosed = false;
+    let uploadState = null;
+    activeIOStreams++;
+
+    const streamIDData = Buffer.concat([Buffer.from([0xff, 0x05, 0xff, 0x05]), Buffer.from(fmTask.StreamID || '')]);
+    try { ioStream.write({ data: streamIDData }); }
+    catch (e) { logErr('[FM] 发送 StreamID 失败:', e.message); activeIOStreams--; return; }
+
+    log('[FM] 初始化, StreamID:', fmTask.StreamID);
+
+    const keepAlive = setInterval(() => {
+        if (streamClosed) return;
+        try { ioStream.write({ data: Buffer.alloc(0) }); } catch (e) {}
+    }, 30000);
+
+    function sendError(msg) {
+        if (streamClosed) return;
+        try { ioStream.write({ data: Buffer.concat([FM_NERR, Buffer.from(msg)]) }); } catch (e) {}
+    }
+
+    function listDir(dir) {
+        try {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+            const parts = [];
+            const pathBuf = Buffer.from(dir);
+            const pathLen = Buffer.alloc(4);
+            pathLen.writeUInt32BE(pathBuf.length, 0);
+            parts.push(FM_NZFN, pathLen, pathBuf);
+            for (const entry of entries) {
+                const isDir = entry.isDirectory() ? 1 : 0;
+                const nameBuf = Buffer.from(entry.name);
+                parts.push(Buffer.from([isDir, nameBuf.length & 0xFF]), nameBuf);
+            }
+            ioStream.write({ data: Buffer.concat(parts) });
+        } catch (err) {
+            const homeDir = os.homedir() + path.sep;
+            if (dir !== homeDir) listDir(homeDir);
+            else sendError(err.message);
+        }
+    }
+
+    function downloadFile(filePath) {
+        try {
+            const stat = fs.statSync(filePath);
+            if (stat.size <= 0) { sendError('requested file is empty'); return; }
+            const sizeBuf = Buffer.alloc(8);
+            sizeBuf.writeBigUInt64BE(BigInt(stat.size), 0);
+            ioStream.write({ data: Buffer.concat([FM_NZTD, sizeBuf]) });
+            const stream = fs.createReadStream(filePath, { highWaterMark: 1024 * 1024 });
+            stream.on('data', (chunk) => {
+                if (streamClosed) { stream.destroy(); return; }
+                ioStream.write({ data: chunk });
+            });
+            stream.on('error', (err) => sendError(err.message));
+        } catch (err) { sendError(err.message); }
+    }
+
+    function startUpload(data) {
+        if (data.length < 8) { sendError('data is invalid'); return; }
+        const fileSize = Number(data.readBigUInt64BE(0));
+        const filePath = data.slice(8).toString();
+        try {
+            const dir = path.dirname(filePath);
+            if (dir && !fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+            const writeStream = fs.createWriteStream(filePath);
+            uploadState = { writeStream, fileSize, received: 0, finished: false };
+            writeStream.on('error', (err) => { if (uploadState) { sendError(err.message); uploadState = null; } });
+            writeStream.on('finish', () => {
+                if (uploadState && !uploadState.finished) {
+                    uploadState.finished = true;
+                    log('[FM] 文件接收完成');
+                    ioStream.write({ data: FM_NZUP });
+                    uploadState = null;
+                }
+            });
+            log('[FM] 接收文件:', filePath, '大小:', fileSize);
+        } catch (err) { sendError(err.message); }
+    }
+
+    ioStream.on('data', (msg) => {
+        const data = Buffer.from(msg.data || []);
+        if (data.length === 0) return;
+        if (uploadState) {
+            const ok = uploadState.writeStream.write(data);
+            uploadState.received += data.length;
+            if (!ok) uploadState.writeStream.once('drain', () => {});
+            if (uploadState.received >= uploadState.fileSize) uploadState.writeStream.end();
+            return;
+        }
+        switch (data[0]) {
+            case 0: listDir(data.slice(1).toString()); break;
+            case 1: downloadFile(data.slice(1).toString()); break;
+            case 2: startUpload(data.slice(1)); break;
+        }
+    });
+
+    const cleanup = () => {
+        clearInterval(keepAlive);
+        if (!streamClosed) {
+            streamClosed = true;
+            activeIOStreams--;
+            if (uploadState) { try { uploadState.writeStream.destroy(); } catch (e) {} uploadState = null; }
+        }
+    };
+    ioStream.on('error', (err) => { logErr('[FM] IOStream 错误:', err.message); cleanup(); });
+    ioStream.on('end', () => { log('[FM] IOStream 结束, StreamID:', fmTask.StreamID); cleanup(); });
+}
+
+// NZ-Agent: 任务分发 
+function dispatchTask(task, taskStream, client, metadata) {
+    switch (task.type) {
+        case TaskType.TerminalGRPC: handleTerminalTask(task, client, metadata); break;
+        case TaskType.FM: handleFMTask(task, client, metadata); break;
+    }
+}
+
+// NZ-Agent: 辅助函数
+function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+function callWithTimeout(fn, timeoutMs) {
+    return new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error('timeout')), timeoutMs);
+        fn((err, resp) => { clearTimeout(timer); if (err) reject(err); else resolve(resp); });
+    });
+}
+
+// NZ-Agent: 主循环
+async function startNezhaAgent() {
+    if (!NEZHA_SERVER || !NEZHA_KEY) {
+        console.log('[Nezha] NEZHA_SERVER 或 NEZHA_KEY 未配置，跳过哪吒 agent');
+        return;
+    }
+
+    log('[Nezha] 服务器:', NEZHA_SERVER);
+    log('[Nezha] TLS:', shouldUseTLS(NEZHA_SERVER) ? '启用' : '禁用');
+    log('[Nezha] UUID:', UUID);
+
+    const proto = loadProto();
+    const useTLS = shouldUseTLS(NEZHA_SERVER);
+    const credentials = useTLS ? grpc.credentials.createSsl() : grpc.credentials.createInsecure();
+    const metadata = buildMetadata();
+
+    let lastReportHostInfo = 0;
+    let lastReportIPInfo = 0;
+    let geoipReported = false;
+    let prevDashboardBootTime = 0;
+
+    while (true) {
+        let client = null;
+        let taskStream = null;
+        let stateStream = null;
+        let workerCancelled = false;
+
+        try {
+            client = new proto.NezhaService(NEZHA_SERVER, credentials);
+            console.log('nzbot is running...');
+
+            const hostInfo = await getHost();
+            let dashboardBootTime = 0;
+            try {
+                const receipt = await callWithTimeout(
+                    (cb) => client.ReportSystemInfo2(hostInfo, metadata, cb), NETWORK_TIMEOUT
+                );
+                dashboardBootTime = receipt.data || 0;
+                log('[Agent] 上报系统信息成功, Dashboard BootTime:', dashboardBootTime);
+            } catch (err) {
+                logErr('[Agent] 上报系统信息失败:', err.message);
+                throw err;
+            }
+
+            geoipReported = false;
+            prevDashboardBootTime = dashboardBootTime;
+
+            try {
+                const success = await reportGeoIP(client, metadata, true);
+                if (success) { lastReportIPInfo = Date.now(); geoipReported = true; }
+            } catch (e) { logErr('[GeoIP] 首次上报异常:', e.message); }
+
+            taskStream = client.RequestTask(metadata);
+            log('[Agent] RequestTask strem connect');
+
+            stateStream = client.ReportSystemState(metadata);
+            log('[Agent] ReportSystemState strem connect');
+
+            taskStream.on('data', (task) => { dispatchTask(task, taskStream, client, metadata); });
+            taskStream.on('error', (err) => { logErr('[Agent] RequestTask strem error:', err.message); workerCancelled = true; });
+            taskStream.on('end', () => { log('[Agent] RequestTask strem finished'); workerCancelled = true; });
+
+            const stateLoop = (async () => {
+                while (!workerCancelled) {
+                    try {
+                        await trackNetworkSpeed();
+                        const state = await getState();
+                        await new Promise((resolve, reject) => {
+                            stateStream.write(state, (err) => { if (err) reject(err); else resolve(); });
+                        });
+                        await new Promise((resolve, reject) => {
+                            const timer = setTimeout(() => {
+                                stateStream.removeListener('data', onReceipt);
+                                stateStream.removeListener('error', onError);
+                                reject(new Error('receipt timeout'));
+                            }, NETWORK_TIMEOUT);
+                            const onReceipt = (msg) => { clearTimeout(timer); stateStream.removeListener('error', onError); resolve(msg); };
+                            const onError = (err) => { clearTimeout(timer); stateStream.removeListener('data', onReceipt); reject(err); };
+                            stateStream.once('data', onReceipt);
+                            stateStream.once('error', onError);
+                        });
+                        const now = Date.now();
+                        if (now - lastReportHostInfo > 10 * 60 * 1000) {
+                            try {
+                                const hostRefresh = await getHost();
+                                await callWithTimeout((cb) => client.ReportSystemInfo2(hostRefresh, metadata, cb), 10000);
+                                lastReportHostInfo = now;
+                            } catch (e) { }
+                        }
+                        if (now - lastReportIPInfo > IP_REPORT_PERIOD * 1000 || !geoipReported) {
+                            const forceUpdate = !geoipReported;
+                            const success = await reportGeoIP(client, metadata, forceUpdate);
+                            if (success) { lastReportIPInfo = now; geoipReported = true; }
+                        }
+                    } catch (err) {
+                        logErr('[Agent] error:', err.message);
+                        workerCancelled = true;
+                        break;
+                    }
+                    await sleep(REPORT_DELAY * 1000);
+                }
+            })();
+
+            await stateLoop;
+
+        } catch (err) {
+            logErr('[Agent] connect error:', err.message);
+        } finally {
+            if (activeIOStreams > 0) {
+                log(`[Agent] 等待 ${activeIOStreams} 个活跃 IOStream 会话结束...`);
+                const waitStart = Date.now();
+                while (activeIOStreams > 0 && Date.now() - waitStart < 5000) await sleep(100);
+                if (activeIOStreams > 0) logWarn(`[Agent] 仍有 ${activeIOStreams} 个 IOStream 会话未结束，强制关闭`);
+            }
+            try { if (taskStream) taskStream.end(); } catch (e) {}
+            try { if (stateStream) stateStream.end(); } catch (e) {}
+            try { if (client) client.close(); } catch (e) {}
+        }
+
+        log('[Agent] retry connect...');
+        await sleep(RETRY_DELAY);
+    }
+}
+
+// start service
+httpServer.listen(PORT, () => {
+  startNezhaAgent().catch(err => console.error('error', err));
+  addAccessTask();
+  console.log(`Server is running on ${PORT}`);
+});
